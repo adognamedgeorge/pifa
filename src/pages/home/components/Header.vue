@@ -25,7 +25,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import '../../../assets/styles/varible.styl';
+  @import '~@/assets/styles/varible.scss';
   #header {
     height:30px;
     font-size:12px;

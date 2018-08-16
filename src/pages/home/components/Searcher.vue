@@ -20,7 +20,7 @@
         <div class="cart">
           <a class="cart-bg1" href=""> </a>
           <p class="cart-p">进货单</p>
-          <span class="cart-span">99</span>
+          <span class="cart-span">{{this.c}}</span>
           <i></i>
           <a class="cart-bg2" href=""> </a>
 
@@ -68,8 +68,6 @@
           <a href=""> <img src="../../../assets/imgs/2.png" alt="云蚂蚁app二维码"/></a>
         </div>
       </div>
-
-
       <div class="bar">
         <h2>全部商品分类</h2>
         <ul>
@@ -83,20 +81,21 @@
           <li><a href="">速冻食品</a></li>
         </ul>
       </div>
-
-
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name:"HomeSearcher"
+  name: 'HomeSearcher',
+  props: {
+    c: String
+  }
 }
 </script>
 
 <style lang="scss" scoped>
-  @import '../../../assets/styles/varible.styl';
+  @import '~@/assets/styles/varible';
   #search {
     height:150px;
     background-color: $color;
@@ -132,8 +131,7 @@ export default {
       .form {
         width: 550px;
         height: 40px;
-        margin-left: 97px;
-        margin-top: 47px;
+        margin:47px 50px 0 97px;
         border: 2px solid rgba(230, 45, 45, 1);
         letter-spacing: -8px;
         .text {
@@ -148,7 +146,7 @@ export default {
         .button {
           height: 40px;
           width: 80px;
-          letter-spacing: normal;
+          letter-spacing:normal;
           background-color: rgba(230, 45, 45, 1);
           border: none;
           font-size: 18px;
@@ -157,13 +155,16 @@ export default {
       }
 
       .cart {
-        margin-left: 50px;
+        //margin-left: 50px;
         top: 48px;
-        width: 150px;
+        width: 144px;
         height: 40px;
         border: 1px solid rgba(0, 0, 0, 0.2);
         position: relative;
         z-index:1;
+        margin-right:56px;
+        padding-right:6px;
+        flex:1;
         a {
           display: inline-block;
         }
@@ -173,7 +174,6 @@ export default {
           font-size: 14px;
           color: rgba(51, 51, 51, 1);
           line-height: 40px;
-          height: 40px;
           width: 50px;
           margin-left: 52px;
         }
@@ -182,8 +182,7 @@ export default {
           font-size: 14px;
           color: rgba(230, 45, 45, 1);
           display: inline-block;
-          height: 14px;
-          width: 17px;
+
         }
         i {
           width: 1px;
@@ -191,12 +190,14 @@ export default {
           background: rgba(0, 0, 0, 0.2);
           display: inline-block;
           position: absolute;
-          right: 49px;
+          left:100px;
           top: 14px;
         }
 
         .cart-bg1 {
-          background:url("../../../assets/imgs/sprite.png") no-repeat;
+          //background:url("~@/assets/imgs/sprite.png") no-repeat;
+          //@extend %sprite;
+          background:$Sprite;
           background-position: -32px 0;
           width: 24px;
           height: 24px;
@@ -207,11 +208,10 @@ export default {
         .cart-bg2 {
           width: 16px;
           height: 16px;
-          background:url("../../../assets/imgs/sprite.png") no-repeat;
+          background:$Sprite;
           background-position: 0 0;
           position: absolute;
           top: 13px;
-          right: 8px;
         }
         .cart-bg2:hover {
           transform:rotate(180deg);
@@ -381,7 +381,6 @@ export default {
         width: 70px;
         height: 70px;
         margin-top: 31px;
-        margin-left: 56px;
         img {
           width: 100%;
         }

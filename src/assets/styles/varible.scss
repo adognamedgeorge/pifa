@@ -4,7 +4,9 @@ $width:1190px;
 $font:12px;
 $B:1px solid black;
 $color:rgba(255,255,255,1);
-$Sprite:url("../imgs/sprite.png") no-repeat;
+$Sprite:url("~@/assets/imgs/sprite.png") no-repeat;
+
+
 
 
 %wrapper {
@@ -14,5 +16,12 @@ $Sprite:url("../imgs/sprite.png") no-repeat;
     background-color:inherit;
   }
 }
+
+
+
+
+
+
+
 
 
