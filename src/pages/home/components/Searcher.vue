@@ -18,10 +18,8 @@
         </div>
 
         <div class="cart">
-          <a class="cart-bg1" href=""> </a>
-          <p class="cart-p">进货单</p>
-          <span class="cart-span">{{this.c}}</span>
-          <i></i>
+          <span class="cart-p"><a class="cart-bg1" href=""> </a>  进货单<i> </i></span>
+          <span class="cart-span">12345678</span>
           <a class="cart-bg2" href=""> </a>
 
           <div class="cart-hide">
@@ -155,63 +153,58 @@ export default {
       }
 
       .cart {
-        //margin-left: 50px;
         top: 48px;
-        width: 144px;
+        width: 150px;
         height: 40px;
         border: 1px solid rgba(0, 0, 0, 0.2);
         position: relative;
         z-index:1;
-        margin-right:56px;
-        padding-right:6px;
-        flex:1;
-        a {
-          display: inline-block;
+        font-size:14px;
+
+        span {
+          float:left;
+          display:inline-block;
         }
 
         .cart-p {
-          display: inline-block;
-          font-size: 14px;
           color: rgba(51, 51, 51, 1);
-          line-height: 40px;
-          width: 50px;
-          margin-left: 52px;
+          line-height: 26px;
+          height: 33px;
+          padding-top:7px;
+          text-indent:6px;
+          padding-left:22px;
+          .cart-bg1 {
+            background: $Sprite;
+            background-position: -32px 0;
+            width: 24px;
+            height: 24px;
+            display:inline-block;
+            float:left;
+          }
+          i {
+            width: 1px;
+            height: 13px;
+            background: rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            margin:0 6px -2px 6px;
+          }
         }
 
         .cart-span {
-          font-size: 14px;
           color: rgba(230, 45, 45, 1);
-          display: inline-block;
-
-        }
-        i {
-          width: 1px;
-          height: 13px;
-          background: rgba(0, 0, 0, 0.2);
-          display: inline-block;
-          position: absolute;
-          left:100px;
-          top: 14px;
+          line-height:40px;
+          overflow:hidden;
+          max-width:27px;
         }
 
-        .cart-bg1 {
-          //background:url("~@/assets/imgs/sprite.png") no-repeat;
-          //@extend %sprite;
-          background:$Sprite;
-          background-position: -32px 0;
-          width: 24px;
-          height: 24px;
-          position: absolute;
-          left: 22px;
-          top: 7px;
-        }
         .cart-bg2 {
           width: 16px;
           height: 16px;
           background:$Sprite;
           background-position: 0 0;
-          position: absolute;
-          top: 13px;
+          display:inline-block;
+          float:left;
+          margin-top:12px;
         }
         .cart-bg2:hover {
           transform:rotate(180deg);
@@ -381,6 +374,7 @@ export default {
         width: 70px;
         height: 70px;
         margin-top: 31px;
+        margin-left:56px;
         img {
           width: 100%;
         }
