@@ -18,8 +18,8 @@
         </div>
 
         <div class="cart">
-          <span class="cart-p"><a class="cart-bg1" href=""> </a>  进货单<i> </i></span>
-          <span class="cart-span">12345678</span>
+          <span class="cart-p"><a class="cart-bg1" href=""> </a>进货单<i> </i></span>
+          <span class="cart-span">{{this.c}}</span>
           <a class="cart-bg2" href=""> </a>
 
           <div class="cart-hide">
@@ -70,13 +70,14 @@
         <h2>全部商品分类</h2>
         <ul>
           <li><a href="">首页</a></li>
-          <li><a href="">酒水饮料</a></li>
-          <li><a href="">食品零食</a></li>
-          <li><a href="">粮油调味</a></li>
-          <li><a href="">日常洗护</a></li>
-          <li><a href="">家用百货</a></li>
-          <li><a href="">冰淇淋</a></li>
-          <li><a href="">速冻食品</a></li>
+          <!--<li><a href="">酒水饮料</a></li>-->
+          <!--<li><a href="">食品零食</a></li>-->
+          <!--<li><a href="">粮油调味</a></li>-->
+          <!--<li><a href="">日常洗护</a></li>-->
+          <!--<li><a href="">家用百货</a></li>-->
+          <!--<li><a href="">冰淇淋</a></li>-->
+          <!--<li><a href="">速冻食品</a></li>-->
+          <li v-for="item of cat" :key="item.id"><a href="">{{item.name}}</a></li>
         </ul>
       </div>
     </div>
@@ -87,7 +88,8 @@
 export default {
   name: 'HomeSearcher',
   props: {
-    c: String
+    c: String,
+    cat: Array
   }
 }
 </script>
@@ -162,7 +164,6 @@ export default {
         font-size:14px;
 
         span {
-          float:left;
           display:inline-block;
         }
 
@@ -173,6 +174,7 @@ export default {
           padding-top:7px;
           text-indent:6px;
           padding-left:22px;
+          float:left;
           .cart-bg1 {
             background: $Sprite;
             background-position: -32px 0;
@@ -195,6 +197,7 @@ export default {
           line-height:40px;
           overflow:hidden;
           max-width:27px;
+          float:left;
         }
 
         .cart-bg2 {
@@ -204,7 +207,7 @@ export default {
           background-position: 0 0;
           display:inline-block;
           float:left;
-          margin-top:12px;
+          margin-top:13px;
         }
         .cart-bg2:hover {
           transform:rotate(180deg);
@@ -220,7 +223,6 @@ export default {
           background:$color;
           box-shadow:0 2px 8px 0 rgba(0,0,0,0.1);
           padding-right:2px;
-          z-index:100;
           overflow:hidden;
           transition:max-height .6s linear;
           -webkit-transition:max-height .6s linear;
@@ -320,6 +322,7 @@ export default {
 
             }
           }
+          //购物车侧边滚动条样式
           ul::-webkit-scrollbar {
             width:6px;
             background-color:$color;

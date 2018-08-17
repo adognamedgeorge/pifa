@@ -1,7 +1,7 @@
 <template>
   <div id="header" class="wrapper">
     <p class="h-left">
-      <a href="">云蚂蚁官网</a>Hi,<a href="" class="active">云蚂蚁1234</a><a href="">退出</a>
+      <a href="">云蚂蚁官网</a>Hi,<a href="" class="active">{{this.user['name']}}</a><a href="">退出</a>
     </p>
 
     <div class="h-right">
@@ -20,7 +20,10 @@
 
 <script>
 export default {
-  name: 'HomeHeader'
+  name: 'HomeHeader',
+  props: {
+    user: Object
+  }
 }
 </script>
 
@@ -42,6 +45,8 @@ export default {
   }
   a.active {
     color:rgba(230,45,45,1);
+    text-indent:4px;
+    display:inline-block;
   }
   }
   .h-right {

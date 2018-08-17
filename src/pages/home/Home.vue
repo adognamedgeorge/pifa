@@ -1,24 +1,30 @@
 <template>
   <div>
-    <home-header></home-header>
-    <home-searcher :c="cartNum"></home-searcher>
+    <home-header :user="user"></home-header>
+    <home-searcher :c="cartNum" :cat="category"></home-searcher>
+    <home-poster :list="posterlist"></home-poster>
   </div>
 </template>
 
 <script>
 import HomeHeader from './components/Header'
 import HomeSearcher from './components/Searcher'
+import HomePoster from './components/Poster'
 import axios from 'axios'
 
 export default {
   name: 'Home',
   components: {
     HomeHeader,
-    HomeSearcher
+    HomeSearcher,
+    HomePoster
   },
   data () {
     return {
-      cartNum: ''
+      cartNum: '',
+      user: {},
+      category: [],
+      posterlist: []
     }
   },
   methods: {
@@ -31,6 +37,9 @@ export default {
       if (res.ret && res.data) {
         const data = res.data
         this.cartNum = data.cartNum
+        this.user = data.user
+        this.category = data.category
+        this.posterlist = data.posterlist
       }
     }
   },
