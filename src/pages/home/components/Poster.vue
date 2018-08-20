@@ -4,166 +4,31 @@
       <!--<h2>全部商品分类</h2>-->
       <div class="list">
         <ul>
-          <li>
+          <li v-for="item of cat" :key="item.id">
             <div class="list-a">
-              <a href="">酒水饮料</a><a href="">饮料</a><a href="">啤酒</a><a href="">果酒</a>
+              <a href="">{{item.name}}</a>
+              <a href="" v-for="item2 of item['items']" :key="item2.id">{{item2.name}}</a>
             </div>
 
             <div class="mulu-hide">
-              <p>食品零食</p>
+              <p>{{item.name}}</p>
               <div>
-                <a href="">膨化食品</a>
-                <a href="">饼干点心</a>
-                <a href="">方便食品</a>
-                <a href="">干果蜜饯</a>
-                <a href="">糖果巧克力</a>
-                <a href="">早餐食品</a>
-                <a href="">进口食品</a>
-                <a href="">麻辣食品</a>
-                <a href="">散称专区</a>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="list-a">
-              <a href="">酒水饮</a><a href="">饮料</a><a href="">啤酒</a><a href="">果酒</a>
-            </div>
-            <div class="mulu-hide">
-              <p>酒水饮料</p>
-              <div>
-                <a href="">一二三四</a>
-                <a href="">饼干点心</a>
-                <a href="">方便食品的</a>
-                <a href="">干果蜜饯酒</a>
-                <a href="">糖果巧克力</a>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="list-a">
-              <a href="">酒水饮料</a><a href="">饮料</a><a href="">啤酒</a><a href="">果酒</a>
-            </div>
-            <div class="mulu-hide">
-              <p>生活电器</p>
-              <div>
-                <a href="">膨食品</a>
-                <a href="">饼干心</a>
-                <a href="">方便食品的</a>
-                <a href="">干果蜜饯</a>
-                <a href="">糖果巧克力</a>
-                <a href="">早餐食品</a>
-                <a href="">进口食品的</a>
-
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="list-a">
-              <a href="">酒水饮料</a><a href="">饮料</a><a href="">啤酒</a><a href="">果酒</a>
-            </div>
-            <div class="mulu-hide">
-              <p>运动户外</p>
-              <div>
-                <a href="">糖果巧克力</a>
-                <a href="">早餐食品</a>
-                <a href="">麻辣的食品</a>
-                <a href="">散称专区</a>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="list-a">
-              <a href="">酒水饮料</a><a href="">饮料</a><a href="">啤酒</a><a href="">果酒</a>
-            </div>
-            <div class="mulu-hide">
-              <p>影音书籍</p>
-              <div>
-                <a href="">膨化食品</a>
-                <a href="">饼干点心</a>
-                <a href="">方便食品</a>
-                <a href="">干果蜜饯</a>
-                <a href="">糖果巧克力</a>
-                <a href="">早餐食品</a>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="list-a">
-              <a href="">酒水饮</a><a href="">饮料</a><a href="">啤酒</a><a href="">果酒</a>
-            </div>
-            <div class="mulu-hide">
-              <p>成人用品</p>
-              <div>
-                <a href="">糖果巧克力</a>
-                <a href="">早餐食品</a>
-                <a href="">进口食品</a>
-                <a href="">麻辣品</a>
-                <a href="">散称区</a>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="list-a">
-              <a href="">酒水饮料</a><a href="">饮料</a><a href="">啤酒</a><a href="">果酒</a>
-            </div>
-            <div class="mulu-hide">
-              <p>当季流行</p>
-              <div>
-                <a href="">膨化食品</a>
-                <a href="">饼干点心</a>
-                <a href="">早餐食品</a>
-                <a href="">进口食品</a>
-                <a href="">麻辣食品</a>
-                <a href="">散称专区</a>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="list-a">
-              <a href="">酒水饮料</a><a href="">饮料</a><a href="">啤酒</a><a href="">果酒</a>
-            </div>
-            <div class="mulu-hide">
-              <p>医药保健</p>
-              <div>
-                <a href="">饼干点心</a>
-                <a href="">方便食品</a>
-                <a href="">干果蜜饯</a>
-                <a href="">早餐食品</a>
-                <a href="">进口食品</a>
-                <a href="">麻辣食品</a>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="list-a">
-              <a href="">酒水饮料</a><a href="">饮料</a><a href="">啤酒</a><a href="">果酒</a>
-            </div>
-
-            <div class="mulu-hide">
-              <p>家纺家饰</p>
-              <div>
-                <a href="">膨化食品</a>
-                <a href="">饼干点心</a>
-                <a href="">散称专区</a>
+                <a href="" v-for="item2 of item.items" :key="item2.id">{{item2.name}}</a>
               </div>
             </div>
           </li>
         </ul>
       </div>
-
     </div>
 
-    <div class="lunbo">
-      <div class="lunbo-img">
-        <swiper :option="swiperOption" v-if="showSwiper">
-          <swiper-slide v-for="item of list" :key="item.sort">
-            <a :href="item.link" target="_blank"><img :src="item.img"/></a>
-          </swiper-slide>
-          <div class="swiper-pagination" slot="pagination"></div>
-        </swiper>
-      </div>
-
-      <ul class="list-li"> </ul>
+<!--vue-awesome-swiper插件轮播-->
+    <div class="lunb">
+      <swiper :options="swiperOption" v-if="showSwiper">
+        <swiper-slide v-for="item of list" :key="item.sort">
+          <a :href="item.link" target="_blank"><img class="swiper-img" :src="item.img"/></a>
+        </swiper-slide>
+        <div class="swiper-pagination"  slot="pagination"></div>
+      </swiper>
     </div>
 
     <div class="ads">
@@ -205,25 +70,24 @@
 </template>
 
 <script>
-
 export default {
   name: 'HomePoster',
   props: {
-    list: Array
+    list: Array,
+    cat: []
   },
   data () {
     return {
       swiperOption: {
         pagination: '.swiper-pagination',
         loop: true,
+        autoplay: 4000,
         paginationClickable: true,
-        coverflow: {
-          rotate: 30,
-          stretch: 10,
-          depth: 60,
-          modifier: 2,
-          slideShadows: true
+        speed: 2000,
+        paginationBulletRender: function (swiper, index, className) {
+          return '<span class="' + className + '">' + (index + 1) + '</span>'
         }
+
       }
     }
   },
@@ -237,6 +101,35 @@ export default {
 
 <style lang="scss" scoped>
   @import '~@/assets/styles/varible.scss';
+  #slider /deep/ .swiper-pagination-bullet {
+    float: left;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    opacity:.8;
+    filter:Alpha(opacity=80);
+    line-height: 20px;
+    text-align: center;
+    margin-right: 10px;
+    color: #fff;
+    font-size: 14px;
+    cursor:crosshair;
+  }
+  #slider /deep/ .swiper-pagination-bullet-active {background-color:rgba(230,45,45,1);}
+
+  .lunb {
+    overflow: hidden;
+    width: 700px;
+    height: 320px;
+    background: #fff;
+    margin:10px 10px 0 10px;
+    .swiper-img {
+      width:100%;
+      height:100%;
+    }
+    .swiper-container {height:100%;}
+  }
+
   #slider {
     height: 330px;
     margin-bottom: 10px;
@@ -319,11 +212,12 @@ export default {
       margin: 10px 10px 0 10px;
       overflow: hidden;
       position: relative;
-      background-size: 100% 100%;
+      //background-size: 100% 100%;
       .lunbo-img {
         position:absolute;
         top:0;
         left:0;
+        z-index:-1;
         a {
           float:left;
           width:700px;
@@ -341,24 +235,7 @@ export default {
         bottom: 10px;
         right: 10px;
       }
-      .list-li li {
-        float: left;
-        width: 20px;
-        height: 20px;
-        background-color: rgba(0, 0, 0, 0.8);
-        opacity:.8;
-        filter:Alpha(opacity=80);
-        line-height: 20px;
-        text-align: center;
-        border-radius: 50%;
-        margin-right: 10px;
-        color: #fff;
-        font-size: 14px;
-        cursor:crosshair;
-      }
-      .list-li .active {
-        background-color:rgba(230,45,45,1);
-      }
+
     }
 
     .ads {

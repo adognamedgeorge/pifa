@@ -2,7 +2,8 @@
   <div>
     <home-header :user="user"></home-header>
     <home-searcher :c="cartNum" :cat="category"></home-searcher>
-    <home-poster :list="posterlist"></home-poster>
+    <home-poster :list="posterlist" :cat="category"></home-poster>
+    <home-category></home-category>
   </div>
 </template>
 
@@ -10,6 +11,7 @@
 import HomeHeader from './components/Header'
 import HomeSearcher from './components/Searcher'
 import HomePoster from './components/Poster'
+import HomeCategory from './components/Category'
 import axios from 'axios'
 
 export default {
@@ -17,7 +19,8 @@ export default {
   components: {
     HomeHeader,
     HomeSearcher,
-    HomePoster
+    HomePoster,
+    HomeCategory
   },
   data () {
     return {
