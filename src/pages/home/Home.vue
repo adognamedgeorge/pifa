@@ -3,7 +3,10 @@
     <home-header :user="user"></home-header>
     <home-searcher :c="cartNum" :cat="category"></home-searcher>
     <home-poster :list="posterlist" :cat="category"></home-poster>
+    <home-bargain></home-bargain>
     <home-category></home-category>
+    <home-ads></home-ads>
+    <home-footer></home-footer>
   </div>
 </template>
 
@@ -11,7 +14,10 @@
 import HomeHeader from './components/Header'
 import HomeSearcher from './components/Searcher'
 import HomePoster from './components/Poster'
+import HomeBargain from './components/Bargain'
 import HomeCategory from './components/Category'
+import HomeAds from './components/Ads'
+import HomeFooter from './components/Footer'
 import axios from 'axios'
 
 export default {
@@ -20,7 +26,10 @@ export default {
     HomeHeader,
     HomeSearcher,
     HomePoster,
-    HomeCategory
+    HomeBargain,
+    HomeCategory,
+    HomeAds,
+    HomeFooter
   },
   data () {
     return {
@@ -32,7 +41,7 @@ export default {
   },
   methods: {
     getHomeInfo () {
-      axios.get('/api/index.json')
+      axios.get('/api/home.json')
         .then(this.getHomeInfoSucc)
     },
     getHomeInfoSucc (res) {
