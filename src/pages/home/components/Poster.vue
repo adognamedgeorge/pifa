@@ -87,7 +87,6 @@ export default {
         paginationBulletRender: function (swiper, index, className) {
           return '<span class="' + className + '">' + (index + 1) + '</span>'
         }
-
       }
     }
   },
@@ -102,7 +101,6 @@ export default {
 <style lang="scss" scoped>
   @import '~@/assets/styles/varible.scss';
   #slider /deep/ .swiper-pagination-bullet {
-    float: left;
     width: 20px;
     height: 20px;
     background-color: rgba(0, 0, 0, 0.8);
@@ -111,9 +109,15 @@ export default {
     line-height: 20px;
     text-align: center;
     margin-right: 10px;
+    margin-left:unset;
     color: #fff;
     font-size: 14px;
     cursor:crosshair;
+  }
+  #slider /deep/ .swiper-pagination-bullets {
+    left:unset;
+    width:unset;
+    right:20px;
   }
   #slider /deep/ .swiper-pagination-bullet-active {background-color:rgba(230,45,45,1);}
 
@@ -123,6 +127,7 @@ export default {
     height: 320px;
     background: #fff;
     margin:10px 10px 0 10px;
+    //z-index:-1;
     .swiper-img {
       width:100%;
       height:100%;

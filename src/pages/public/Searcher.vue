@@ -19,14 +19,14 @@
 
         <div class="cart">
           <span class="cart-p"><a class="cart-bg1" href=""> </a>进货单<i> </i></span>
-          <span class="cart-span">{{this.c}}</span>
+          <span class="cart-span">{{this.cartNum}}</span>
           <a class="cart-bg2" href=""> </a>
 
           <div class="cart-hide">
             <h3>新加入的商品</h3>
             <ul>
               <li>
-                <a class="ch-img" href=""><img src="../../../assets/imgs/4.png"/></a>
+                <a class="ch-img" href=""><img src="../../assets/imgs/4.png"/></a>
                 <div class="ch-content">
                   <p class="ch-text"><a href="#">芝士印尼进口丽姿势姿势姿势姿势姿势</a></p>
                   <div>
@@ -39,7 +39,7 @@
               </li>
               <li>2</li>
               <li>
-                <a class="ch-img" href=""><img src="../../../assets/imgs/4.png"/></a>
+                <a class="ch-img" href=""><img src="../../assets/imgs/4.png"/></a>
                 <div class="ch-content">
                   <p class="ch-text"><a href="#">芝士印尼进口丽姿势姿势姿势姿势姿势</a></p>
                   <div>
@@ -63,7 +63,7 @@
         </div>
 
         <div class="img">
-          <a href=""> <img src="../../../assets/imgs/2.png" alt="云蚂蚁app二维码"/></a>
+          <a href=""> <img src="../../assets/imgs/2.png" alt="云蚂蚁app二维码"/></a>
         </div>
       </div>
       <div class="bar">
@@ -85,11 +85,30 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: 'HomeSearcher',
-  props: {
-    c: String,
-    cat: Array
+  data () {
+    return {
+      cartNum: '',
+      category: []
+    }
+  },
+  methods: {
+    getHomeInfo () {
+      axios.get('/api/home.json')
+        .then(this.getHomeInfoSucc)
+    },
+    getHomeInfoSucc (res) {
+      res = res.data
+      if (res.ret && res.data) {
+        const data = res.data
+        this.cartNum = data.cartNum
+      }
+    }
+  },
+  mounted () {
+    this.getHomeInfo()
   }
 }
 </script>

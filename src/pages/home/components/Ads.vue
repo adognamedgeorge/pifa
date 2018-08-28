@@ -24,7 +24,7 @@ export default {
       padding-top:8px;
       padding-bottom:8px;
         img {
-          width:100%;
+          /*width:100%;*/
         }
     }
   }
