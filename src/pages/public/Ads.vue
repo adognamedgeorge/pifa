@@ -2,7 +2,7 @@
   <div id="line">
     <div class="wrapper">
       <div class="line-img-box">
-          <img src="http://pifa.yunmayi.com/statics/images/index/0502.jpg"/>
+        <img src="http://pifa.yunmayi.com/statics/images/index/0502.jpg"/>
       </div>
     </div>
   </div>
@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: 'HomeAds'
+  name: 'Ads'
 }
 </script>
 
@@ -18,14 +18,15 @@ export default {
   @import '~@/assets/styles/varible.scss';
   #line {
     background-color:$color;
+    overflow:hidden;
     @extend %wrapper;
     .line-img-box {
       height:84px;
       padding-top:8px;
       padding-bottom:8px;
-        img {
-          /*width:100%;*/
-        }
+      img {
+        /*width:100%;*/
+      }
     }
   }
 </style>

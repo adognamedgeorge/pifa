@@ -1,19 +1,21 @@
 <template>
-  <div id="header" class="wrapper">
-    <p class="h-left">
-      <a href="">云蚂蚁官网</a>Hi,<a href="" class="active">{{this.user['name']}}</a><a href="">退出</a>
-    </p>
+  <div id="header">
+    <div class="wrapper">
+      <p class="h-left">
+        <a href="">云蚂蚁官网</a>Hi,<a href="" class="active">{{this.user['name']}}</a><a href="">退出</a>
+      </p>
 
-    <div class="h-right">
-      <ul>
-        <li><a href="">批发首页</a></li>
-        <li><a href="">会员中心</a></li>
-        <li><a href="">当面付申请</a></li>
-        <li><a href="">快递代收</a></li>
-        <li><a href="">进货单</a></li>
-        <li><a href="">收藏夹</a></li>
-        <li><a href="">帮助中心</a></li>
-      </ul>
+      <div class="h-right">
+        <ul>
+          <li><a href="">批发首页</a></li>
+          <li><a href="">会员中心</a></li>
+          <li><a href="">当面付申请</a></li>
+          <li><a href="">快递代收</a></li>
+          <li><a href="">进货单</a></li>
+          <li><a href="">收藏夹</a></li>
+          <li><a href="">帮助中心</a></li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
@@ -53,6 +55,7 @@ export default {
     font-size:12px;
     text-align:center;
     line-height:30px;
+    background-color:$bgColor1;
     @extend %wrapper;
     .h-left {
       float:left;

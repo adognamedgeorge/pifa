@@ -70,13 +70,6 @@
         <h2>全部商品分类</h2>
         <ul>
           <li><a href="">首页</a></li>
-          <!--<li><a href="">酒水饮料</a></li>-->
-          <!--<li><a href="">食品零食</a></li>-->
-          <!--<li><a href="">粮油调味</a></li>-->
-          <!--<li><a href="">日常洗护</a></li>-->
-          <!--<li><a href="">家用百货</a></li>-->
-          <!--<li><a href="">冰淇淋</a></li>-->
-          <!--<li><a href="">速冻食品</a></li>-->
           <li v-for="item of cat" :key="item.id"><a href="">{{item.name}}</a></li>
         </ul>
       </div>
@@ -91,7 +84,7 @@ export default {
   data () {
     return {
       cartNum: '',
-      category: []
+      cat: []
     }
   },
   methods: {
@@ -104,6 +97,7 @@ export default {
       if (res.ret && res.data) {
         const data = res.data
         this.cartNum = data.cartNum
+        this.cat = data.category
       }
     }
   },
@@ -117,7 +111,7 @@ export default {
   @import '~@/assets/styles/varible';
   #search {
     height:150px;
-    background-color: $color;
+    background-color:$bgColor2;
     @extend %wrapper;
     .box {
       height: 150px;

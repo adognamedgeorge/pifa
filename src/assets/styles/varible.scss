@@ -1,13 +1,12 @@
 $B:1px solid black;
-$bgColor:rgba(242,242,242,1);
 $width:1190px;
 $font:12px;
 $B:1px solid black;
-$color:rgba(255,255,255,1);
+$color: rgba(255,255,255,1);
 $Sprite:url("~@/assets/imgs/sprite.png") no-repeat;
-
-
-
+$bgColor1: rgba(237,237,237,1);
+$bgColor2: rgba(255,255,255,1);
+$bgColor3: rgba(242,242,242,1);
 
 %wrapper {
   .wrapper {
@@ -137,6 +136,28 @@ $Sprite:url("~@/assets/imgs/sprite.png") no-repeat;
     transform:scale(1.04);
     -webkit-transform:scale(1.03);
     box-shadow: 0.4px 1.2px 2px grey;
+  }
+}
+
+%h3a {
+  h3 {
+    float:left;
+    color:rgba(153,153,153,1);
+    width:80px;
+    text-align:center;
+    background-color:#F5F5F5;
+  }
+  div {
+    a {
+      color:rgba(51,51,51,1);
+      display:inline-block;
+      width:70px;
+      padding-left:30px;
+      float:left;
+    }
+    a:hover {
+      color:rgba(230,45,45,1);
+    }
   }
 }
 

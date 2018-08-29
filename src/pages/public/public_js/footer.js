@@ -1,4 +1,4 @@
-import FooterComponent from './Footer.vue'
+import FooterComponent from '../Footer.vue'
 
 const footer = {
   install: function (Vue) {

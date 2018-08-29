@@ -5,9 +5,9 @@
     <home-poster :list="posterlist" :cat="category"></home-poster>
     <home-bargain></home-bargain>
     <home-category></home-category>
-    <home-ads></home-ads>
+    <Ads></Ads>
     <Footer></Footer>
-    <home-scroll></home-scroll>
+    <Scroll></Scroll>
   </div>
 </template>
 
@@ -15,8 +15,6 @@
 import HomePoster from './components/Poster'
 import HomeBargain from './components/Bargain'
 import HomeCategory from './components/Category'
-import HomeAds from './components/Ads'
-import HomeScroll from './components/Scroll'
 import axios from 'axios'
 
 export default {
@@ -24,9 +22,7 @@ export default {
   components: {
     HomePoster,
     HomeBargain,
-    HomeCategory,
-    HomeAds,
-    HomeScroll
+    HomeCategory
   },
   data () {
     return {

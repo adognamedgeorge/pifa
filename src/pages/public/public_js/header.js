@@ -1,4 +1,4 @@
-import HeaderComponent from './Header.vue'
+import HeaderComponent from '../Header.vue'
 
 export default {
   install: (Vue) => {

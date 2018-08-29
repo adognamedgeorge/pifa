@@ -107,7 +107,7 @@ export default {
   ul {
   @extend %item;
   .item-box {
-    box-shadow:-1px 0 0 0 $bgColor inset;
+    box-shadow:-1px 0 0 0 $bgColor3 inset;
     padding-left:5px;
     padding-right:5px;
   }
