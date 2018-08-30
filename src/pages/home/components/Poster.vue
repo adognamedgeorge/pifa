@@ -1,24 +1,25 @@
 <template>
-  <div id="slider" class="wrapper">
-    <div class="mulu">
-      <!--<h2>全部商品分类</h2>-->
-      <div class="list">
-        <ul>
-          <li v-for="item of cat" :key="item.id">
-            <div class="list-a">
-              <a href="">{{item.name}}</a>
-              <a href="" v-for="item2 of item['items']" :key="item2.id">{{item2.name}}</a>
-            </div>
-
-            <div class="mulu-hide">
-              <p>{{item.name}}</p>
-              <div>
-                <a href="" v-for="item2 of item.items" :key="item2.id">{{item2.name}}</a>
+  <div id="slider">
+    <div class="wrapper">
+      <div class="mulu">
+        <!--<h2>全部商品分类</h2>-->
+        <div class="list">
+          <ul>
+            <li v-for="item of cat" :key="item.id">
+              <div class="list-a">
+                <a href="">{{item.name}}</a>
+                <a href="" v-for="item2 of item['items']" :key="item2.id">{{item2.name}}</a>
               </div>
-            </div>
-          </li>
-        </ul>
-      </div>
+
+              <div class="mulu-hide">
+                <p>{{item.name}}</p>
+                <div>
+                  <a href="" v-for="item2 of item.items" :key="item2.id">{{item2.name}}</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
     </div>
 
 <!--vue-awesome-swiper插件轮播-->
@@ -65,6 +66,7 @@
           </ul>
         </div>
       </div>
+    </div>
     </div>
   </div>
 </template>
@@ -121,28 +123,15 @@ export default {
   }
   #slider /deep/ .swiper-pagination-bullet-active {background-color:rgba(230,45,45,1);}
 
-  .lunb {
-    overflow: hidden;
-    width: 700px;
-    height: 320px;
-    background: #fff;
-    margin:10px 10px 0 10px;
-    //z-index:-1;
-    .swiper-img {
-      width:100%;
-      height:100%;
-    }
-    .swiper-container {
-      height:100%;
-      z-index:0;
-    }
-  }
-
   #slider {
     height: 330px;
-    margin-bottom: 10px;
-    display: flex;
-    display:-ms-flexbox;
+    padding-bottom: 10px;
+    background-color:$bgColor3;
+    @extend %wrapper;
+    .wrapper {
+      display: flex;
+      display:-ms-flexbox;
+    }
     .mulu {
       width: 230px;
       height: 330px;
@@ -214,36 +203,21 @@ export default {
       }
     }
 
-    .lunbo {
+    .lunb {
+      overflow: hidden;
       width: 700px;
       height: 320px;
-      margin: 10px 10px 0 10px;
-      overflow: hidden;
-      position: relative;
-      //background-size: 100% 100%;
-      .lunbo-img {
-        position:absolute;
-        top:0;
-        left:0;
-        z-index:-1;
-        a {
-          float:left;
-          width:700px;
-          height:320px;
-          display:inline-block;
-          img {
-            width: 100%;
-            height:100%;
-          }
-        }
+      background: #fff;
+      margin:10px 10px 0 10px;
+      //z-index:-1;
+      .swiper-img {
+        width:100%;
+        height:100%;
       }
-
-      .list-li {
-        position: absolute;
-        bottom: 10px;
-        right: 10px;
+      .swiper-container {
+        height:100%;
+        z-index:0;
       }
-
     }
 
     .ads {

@@ -1,6 +1,5 @@
 <template>
-  <div id="ca-main">
-    <div class="wrapper">
+  <div id="ca-main" class="wrapper">
     <div class="sm-recorder">
       <a href="">默认</a>
       <a href="">销量<i class="re-bg1"> </i></a>
@@ -410,7 +409,6 @@
       </ul>
       <span>共127页，到<input type="text" value="1"/>页<button>确定</button></span>
     </div>
-    </div>
   </div>
 </template>
 
@@ -423,10 +421,10 @@ export default {
 <style lang="scss" scoped>
   @import '~@/assets/styles/varible.scss';
   #ca-main {
-    background-color:$color;
+    //background-color:$bgColor2;
     padding-top:30px;
     padding-bottom:30px;
-    @extend %wrapper;
+    //@extend %wrapper;
     .sm-recorder {
       height:26px;
       background-color:rgba(245,245,245,1);
@@ -459,7 +457,8 @@ export default {
         float:right;
         border:1px solid rgba(230,230,230,1);
         background-color:$color;
-        width:100px;
+        min-width:82px;
+        padding:0 9px;
         height:26px;
         font-size:14px;
         line-height:26px;

@@ -112,6 +112,7 @@ export default {
   #search {
     height:150px;
     background-color:$bgColor2;
+    border-bottom:2px solid #E62D2D;
     @extend %wrapper;
     .box {
       height: 150px;
@@ -287,7 +288,7 @@ export default {
                     color:rgba(153,153,153,1);
                   }
                 }
-                .ch-text:before {
+                .ch-text:after {
                   content:'...';
                   position:absolute;
                   bottom:0;

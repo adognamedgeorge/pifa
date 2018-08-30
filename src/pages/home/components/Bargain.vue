@@ -1,5 +1,6 @@
 <template>
-  <div id="special" class="category wrapper">
+  <div id="special" class="category">
+    <div class="wrapper">
     <div class="sp-left">
       <img src="../../../assets/imgs/home_banner_discount@2x.png"/>
     </div>
@@ -72,8 +73,8 @@
         <a href=""><img src="http://i8.yunmayi.com/upload/2017/03/28/c7add6ce7033b01bfc9b399b4f34efd2.jpgXXXXX!!!!!_300x300.jpg"/></a>
       </div>
       <div class="r-title">
-
       </div>
+    </div>
     </div>
   </div>
 </template>
@@ -88,12 +89,17 @@ export default {
   @import '~@/assets/styles/varible.scss';
   #special {
     height:300px;
-    margin-bottom:30px;
-    display:flex;
-    display:-ms-flexbox;
+    padding-bottom:30px;
+    background-color:$bgColor3;
+    @extend %wrapper;
+    .wrapper {
+      display:flex;
+      display:-ms-flexbox;
+    }
   .sp-left {
     width:230px;
     height:300px;
+    display:inline-block;
   img {
     width:100%;
   }
@@ -104,6 +110,8 @@ export default {
     flex:1;
     -ms-flex:1;
     position:relative;
+    width:720px;
+    overflow:hidden;
   ul {
   @extend %item;
   .item-box {

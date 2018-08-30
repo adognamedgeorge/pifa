@@ -2,7 +2,6 @@
   <div>
     <Header></Header>
     <Searcher></Searcher>
-    <div id="search-border"></div>
     <search-sorts></search-sorts>
     <search-category></search-category>
     <Ads></Ads>
@@ -29,9 +28,5 @@ export default {
     width:$width;
     margin:0 auto;
     background-color:inherit;
-  }
-  #search-border {
-    height:2px;
-    background-color:rgba(230,45,45,1);
   }
 </style>

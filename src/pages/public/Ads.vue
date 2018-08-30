@@ -17,7 +17,7 @@ export default {
 <style lang="scss" scoped>
   @import '~@/assets/styles/varible.scss';
   #line {
-    background-color:$color;
+    background-color:$bgColor2;
     overflow:hidden;
     @extend %wrapper;
     .line-img-box {

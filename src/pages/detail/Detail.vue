@@ -1,12 +1,19 @@
 <template>
   <div>
     <Header></Header>
+    <Searcher></Searcher>
+    <detail-imgzoom></detail-imgzoom>
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
+import DetailImgzoom from './components/Imgzoom'
 export default {
-  name: 'Detail'
+  name: 'Detail',
+  components: {
+    DetailImgzoom
+  }
 }
 </script>
 

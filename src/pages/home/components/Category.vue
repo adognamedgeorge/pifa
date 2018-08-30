@@ -1,6 +1,7 @@
 <template>
-  <div id="categories" class="wrapper">
-    <div id="c1" class="category">
+  <div id="categories">
+    <div class="wrapper">
+      <div id="c1" class="category">
       <div class="c-left">
         <div class="left-t">
           <div class="ca-title">
@@ -178,6 +179,7 @@
         </ul>
       </div>
     </div>
+    </div>
   </div>
 </template>
 
@@ -190,7 +192,9 @@ export default {
 <style lang="scss" scoped>
   @import '~@/assets/styles/varible.scss';
   #categories {
-    margin-bottom:50px;
+    padding-bottom:50px;
+    background-color:$bgColor3;
+    @extend %wrapper;
     .category {
       height:610px;
       margin-bottom:30px;

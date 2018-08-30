@@ -1,6 +1,5 @@
 <template>
-  <div id="sm-header">
-    <div class="wrapper">
+  <div id="sm-header" class="wrapper">
       <div class="sm-title">
         <a href="#">全部商品</a>
         <span> </span>
@@ -30,7 +29,6 @@
         <a href="#" class="sm-more">更多</a>
         <span class="sm-more-bg"> </span>
       </div>
-    </div>
   </div>
 </template>
 
@@ -43,8 +41,8 @@ export default {
 <style lang="scss" scoped>
   @import '~@/assets/styles/varible.scss';
   #sm-header {
-    background:$color;
-    @extend %wrapper;
+    //background-color:$bgColor2;
+    //@extend %wrapper;
     .sm-title {
       height:18px;
       padding-top:20px;

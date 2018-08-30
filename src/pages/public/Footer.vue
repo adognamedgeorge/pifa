@@ -34,6 +34,7 @@ export default {
     padding-top:30px;
     padding-bottom:30px;
     overflow:hidden;
+    background-color:$bgColor3;
     box-shadow:0 -1px 0 0 rgba(230,45,45,1);
     @extend %wrapper;
     .footer-info {
