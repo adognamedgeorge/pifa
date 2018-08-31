@@ -3,16 +3,19 @@
     <Header></Header>
     <Searcher></Searcher>
     <detail-imgzoom></detail-imgzoom>
+    <detail-imgpages></detail-imgpages>
     <Footer></Footer>
   </div>
 </template>
 
 <script>
 import DetailImgzoom from './components/Imgzoom'
+import DetailImgpages from './components/Imgpages'
 export default {
   name: 'Detail',
   components: {
-    DetailImgzoom
+    DetailImgzoom,
+    DetailImgpages
   }
 }
 </script>

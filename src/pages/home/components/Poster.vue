@@ -137,7 +137,7 @@ export default {
       height: 330px;
       position:relative;
       .list {
-        background-color: $color;
+        background-color: $bgColor2;
         height: 324px;
         padding-top: 6px;
         ul li {
@@ -304,13 +304,13 @@ export default {
               color:rgba(102,102,102,1);
             }
             .ad-bg1 {
-              background-position:-149px 0;
+              background-position:-151px 0;
             }
             .ad-bg2 {
-              background-position:-245px 0;
+              background-position:-247px 0;
             }
             .ad-bg3 {
-              background-position:-197px 0;
+              background-position:-199px 0;
             }
           }
         }

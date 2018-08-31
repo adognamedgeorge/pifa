@@ -28,11 +28,20 @@
          <h1>阿尔卑斯糖果巧克力阿力阿尔卑斯糖果巧克力糖果巧克力卑斯糖果巧克力糖果巧</h1>
          <h3>500g散装阿尔卑斯糖果巧克力500g</h3>
          <section></section>
-         <p>批发价：32</p>
-         <div>数量：</div>
-         <a href="">加入购物车</a><a href="">收藏商品</a>
+         <p>批发价：<i>￥</i><b>32</b>/箱</p>
+         <div>
+           <span>数量：</span>
+           <a href="javascript:;">-</a>
+           <input type="text" value="1" data-min="1"/>
+           <a href="javascript:;">+</a>
+         </div>
+         <a class="s2_a" href=""><i></i>加入购物车</a>
+         <a class="s2_a" href=""><i></i>收藏商品</a>
        </div>
-       <div class="section3"></div>
+
+       <div class="section3">
+          <h3>&#8212;&#8212; 我常购买 &#8212;&#8212;</h3>
+       </div>
      </section>
    </div>
 </template>
@@ -81,7 +90,17 @@ export default {
       .section1,.section2,.section3 {
         float:left;
         height:100%;
+        font-size:14px;
+        color:rgba(153,153,153,1);
+        h3 {
+          height:18px;
+          line-height:18px;
+          overflow:hidden;
+          font-weight:normal;
+          font-size:14px;
+        }
       }
+
       .section1 {
         width:450px;
         div {
@@ -104,6 +123,7 @@ export default {
           li:hover {border:1px solid rgba(230,45,45,1);}
         }
       }
+
       .section2 {
         width:480px;
         margin:0 10px 0 20px;
@@ -116,13 +136,9 @@ export default {
           overflow:hidden;
           position:relative;
           margin-bottom:10px;
+          font-weight:medium;
         }
         h3 {
-          height:18px;
-          line-height:18px;
-          font-size:14px;
-          color:rgba(153,153,153,1);
-          overflow:hidden;
           text-overflow:ellipsis;
           white-space:nowrap;
           margin-bottom:20px;
@@ -137,14 +153,43 @@ export default {
           line-height:28px;
           margin-bottom:30px;
           padding-left:3px;
+          i,b {color:rgba(230,45,45,1);}
+          b {font-size:24px;}
         }
         div {
           height:30px;
           line-height:30px;
           margin-bottom:40px;
           padding-left:3px;
+          span {
+            float:left;
+            margin-right:10px;
+          }
+          a {
+            width:30px;
+            height:30px;
+            display:inline-block;
+            border:1px solid rgba(196,196,196,1);
+            color:#666666;
+            font-size:16px;
+            float:left;
+            text-align:center;
+            line-height:30px;
+            font-weight:bold;
+          }
+          input {
+            width:50px;
+            height:30px;
+            line-height:30px;
+            border:none;
+            border-top:1px solid rgba(196,196,196,1);
+            border-bottom:1px solid rgba(196,196,196,1);
+            text-align:center;
+            float:left;
+            font-size:14px;
+          }
         }
-        a {
+        .s2_a {
           height:48px;
           line-height:48px;
           width:178px;
@@ -153,11 +198,31 @@ export default {
           margin:0 20px 0 10px;
           text-align:center;
           font-size:16px;
+          background-color:rgba(230,45,45,1);
+          color:$color;
+          float:left;
+          i {
+            height:24px;
+            width:24px;
+            display:inline-block;
+            background:$Sprite;
+            background-position:-574px 2px;
+            margin:0 10px -6px 0;
+          }
+        }
+        .s2_a:last-child {
+          background-color:$bgColor2;
           color:rgba(230,45,45,1);
+          i {
+            background-position:-297px -1px;
+            position:relative;
+          }
         }
       }
+
       .section3 {
         width:230px;
+        text-align:center;
       }
     }
   }
