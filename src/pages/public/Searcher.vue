@@ -288,7 +288,7 @@ export default {
                     color:rgba(153,153,153,1);
                   }
                 }
-                .ch-text:after {
+                .ch-text::after {
                   content:'...';
                   position:absolute;
                   bottom:0;

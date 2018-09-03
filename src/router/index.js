@@ -4,6 +4,7 @@ import Home from '@/pages/home/Home'
 import Search from '@/pages/search/Search'
 import Detail from '@/pages/detail/Detail'
 import Collect from '@/pages/collect/Collect'
+import Coupon from '@/pages/coupon/Coupon'
 
 Vue.use(Router)
 
@@ -28,6 +29,11 @@ export default new Router({
       path: '/collect',
       name: 'Collect',
       component: Collect
+    },
+    {
+      path: '/coupon',
+      name: 'Coupon',
+      component: Coupon
     }
   ]
 })
