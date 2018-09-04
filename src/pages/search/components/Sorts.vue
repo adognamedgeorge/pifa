@@ -108,7 +108,7 @@ export default {
         float:left;
         margin-top:12px;
       }
-      .sm-more-hover {
+      .sm-more-bg:hover {
         transform:rotate(180deg);
         -webkit-transform:rotate(180deg);
       }

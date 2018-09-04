@@ -11,7 +11,7 @@
       <li class="scr-li"><a href="#c7" class="iconfont">速冻食品<i>&#xe600;</i></a></li>
       <li class="scr-li"><a href="#c8" class="iconfont">尾品汇<i>&#xe600;</i></a></li>
       <li class="scr-li"><a href="#c9" class="iconfont">特价区<i>&#xe600;</i></a></li>
-      <li class="scr-li toTop"><a href="#" class="iconfont">返回顶部<i>&#xe62d;</i></a></li>
+      <li class="scr-li toTop" @click="backTop"><a href="#" class="iconfont">返回顶部<i>&#xe62d;</i></a></li>
     </ul>
   </div>
 </template>
@@ -27,13 +27,24 @@ export default {
   },
   methods: {
     handleScroll () {
-      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
-      console.log(scrollTop)
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
       if (scrollTop > 350) {
         this.goTopShow = true
       } else if (scrollTop < 350) {
         this.goTopShow = false
       }
+    },
+    backTop () {
+      // let back = setInterval(() => {
+      //   if (document.body.scrollTop || document.documentElement.scrollTop) {
+      //     document.body.scrollTop -= 100
+      //     document.documentElement.scrollTop -= 100
+      //   } else {
+      //     clearInterval(back)
+      //   }
+      // })
+      const bTop = document.body || document.documentElement
+      bTop.scrollTop = 0
     }
   },
   mounted () {

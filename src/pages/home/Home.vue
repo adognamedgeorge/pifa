@@ -51,5 +51,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  #search {
+    border:none !important;
+    background-color:rgba(245,245,245,1) !important;
+  }
 
+  #search /deep/ .search_bar>h2 {
+    background-color:rgba(255,255,255,1) !important;
+    color:rgba(51,51,51,1) !important;
+    text-align:unset !important;
+    text-indent:20px;
+  }
+  #search /deep/ .search_logo {
+    background-color:rgba(255,255,255,1);
+  }
 </style>
