@@ -1,18 +1,20 @@
 <template>
-   <div class="wrapper">
-     <header>
-       <label tabindex="1">可领取</label>
-       <label tabindex="2">已领取</label>
-       <label>如何使用</label>
-       <a href="">我的优惠券</a>
-     </header>
+   <div id="use_box" class="wrapper">
+     <button>可领取</button>
+     <button>已领取</button>
+     <button>如何使用</button>
+     <label href="">我的优惠券</label>
 
-     <section>
+     <div class="content1">
        <ul>
          <li>
+           <section>
+             <img src=""/>
+             <div></div>
+           </section>
            <aside>
               <div class="wavy-line"></div>
-             <a href="">立即领取</a>
+              <a href="">立即领取</a>
            </aside>
          </li>
          <li>
@@ -22,10 +24,16 @@
          </li>
          <li>
          </li>
-         <li>
-         </li>
        </ul>
-     </section>
+     </div>
+
+     <div class="content2">
+       1234
+     </div>
+
+     <div class="content3">
+       如何使用
+     </div>
    </div>
 </template>
 
@@ -36,27 +44,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    div {
-      header {
-        height: 50px;
-        line-height: 50px;
-        margin-bottom: 30px;
-        box-shadow: 0 1px 0 0 rgba(242, 242, 242, 1);
-        -webkit-box-shadow: 0 1px 0 0 rgba(242, 242, 242, 1);
-        label {
+    #use_box {
+        button {
           width: 102px;
+          height:50px;
           color: rgba(51, 51, 51, 1);
           font-size: 16px;
           margin-right: 21px;
           display: inline-block;
-          text-align: center;
+          outline:none;
+          box-sizing: border-box;
+          background-color:inherit;
+          border:none;
         }
-        label:focus {
-          color: rgba(230, 45, 45, 1);
-          border: yellow;
-          background: red;
+        button:focus-within {
+          border-bottom:2px solid rgba(230,45,45,1);
+          color:rgba(230,45,45,1);
         }
-        a {
+        label {
           width:78px;height:28px;
           border:1px solid rgba(153,153,153,1);
           text-align:center;
@@ -67,9 +72,12 @@ export default {
           color:rgba(153,153,153,1);
           float:right;
         }
-      }
 
-      section {
+      .content1,.content2,.content3 {
+        display:none;
+        padding-top:30px;
+        /*border-top:1px solid rgba(242, 242, 242, 1);*/
+        box-shadow:0 -1px 0 0 rgba(242,242,242,1);
         ul {
           li {
             width:378px;
@@ -78,6 +86,10 @@ export default {
             float:left;
             margin-left:25px;
             margin-bottom:20px;
+            section {
+              float:left;
+              padding:24px 29px 24px 16px;
+            }
             aside {
               width:81px;
               background-color:#FB7D7D;
@@ -128,5 +140,17 @@ export default {
           }
         }
       }
+
+      button:first-child:focus-within ~ .content1 {display:block;}
+      button:nth-child(2):focus-within ~ .content2 {display:block;}
+      button:nth-child(3):focus-within ~ .content3 {display:block;}
     }
+
+  #use_box:not(:focus-within) {
+    button:first-child {
+      border-bottom:2px solid rgba(230,45,45,1);
+      color:rgba(230,45,45,1);
+    }
+    .content1 {display:block;}
+  }
 </style>
