@@ -9,8 +9,17 @@
        <ul>
          <li>
            <section>
-             <img src=""/>
-             <div></div>
+             <div class="section_img">
+               <img src="http://i8.yunmayi.com/upload/2015/04/30/7b948795d28a540658f4fc6f6da26950.jpgXXXXX!!!!!_300x300.jpg"/>
+             </div>
+             <div class="section_content">
+                <header>
+                  ￥<b>28</b>
+                  <span>满100元可用</span>
+                </header>
+                <p>限食品零食类，特殊商品不可用</p>
+                <h3>2018.7.18-2018.8.1</h3>
+             </div>
            </section>
            <aside>
               <div class="wavy-line"></div>
@@ -56,6 +65,7 @@ export default {
           box-sizing: border-box;
           background-color:inherit;
           border:none;
+          cursor:pointer;
         }
         button:focus-within {
           border-bottom:2px solid rgba(230,45,45,1);
@@ -88,7 +98,39 @@ export default {
             margin-bottom:20px;
             section {
               float:left;
-              padding:24px 29px 24px 16px;
+              padding:24px 0 24px 16px;
+              .section_img {
+                width:100px;height:100px;
+                margin-top:6px;
+                float:left;
+                img {width:100%;}
+              }
+              .section_content {
+                width:140px;min-height:112px;
+                float:left;
+                font-size:12px;
+                padding-left:14px;
+                header {
+                  height:44px;
+                  line-height:44px;
+                  color:#E62D2D;
+                  font-size:16px;
+                  margin-bottom:10px;
+                  b {font-size:30px;}
+                  span {
+                    font-size:12px;
+                    color:rgba(251,125,125,1);
+                    background:rgba(255,237,237,1);
+                    padding:0 6px;
+                  }
+                }
+                p {
+                  color:rgba(51,51,51,1);
+                  font-size:14px;
+                  margin-bottom:6px;
+                }
+                h3 {color:rgba(153,153,153,1);font-weight:normal;}
+              }
             }
             aside {
               width:81px;

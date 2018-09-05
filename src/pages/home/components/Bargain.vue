@@ -12,7 +12,7 @@
             <a href="" target="_blank"><img src="http://i8.yunmayi.com/upload/2015/04/30/7b948795d28a540658f4fc6f6da26950.jpgXXXXX!!!!!_300x300.jpg"/></a>
           </div>
           <div class="item-title">
-            <a href="" target="_blank">百事可乐碳酸饮料汽水，夏天必备夏</a>
+            <a href="" target="_blank">{{list.name}}</a>
           </div>
           <div class="item-price">
             <i>￥</i><strong>47.9</strong>/箱
@@ -65,8 +65,8 @@
         </li>
       </ul>
 
-      <a href=""><div class="btn fl iconfont"><i>&#xe620;</i></div></a>
-      <a href=""><div class="btn fr iconfont"><i>&#xe620;</i></div></a>
+      <a href=""><div class="btn fl iconfont"><i>&#xe600;</i></div></a>
+      <a href=""><div class="btn fr iconfont"><i>&#xe600;</i></div></a>
     </div>
     <div class="sp-right">
       <div class="r-img">
@@ -81,7 +81,10 @@
 
 <script>
 export default {
-  name: 'HomeBargain'
+  name: 'HomeBargain',
+  props: {
+    list: []
+  }
 }
 </script>
 

@@ -3,7 +3,7 @@
     <Header></Header>
     <Searcher></Searcher>
     <home-poster :list="posterlist" :cat="category"></home-poster>
-    <home-bargain></home-bargain>
+    <home-bargain :list="recommend"></home-bargain>
     <home-category></home-category>
     <Ads></Ads>
     <Footer></Footer>
@@ -27,7 +27,8 @@ export default {
   data () {
     return {
       posterlist: [],
-      category: []
+      category: [],
+      recommend: []
     }
   },
   methods: {
@@ -41,6 +42,7 @@ export default {
         const data = res.data
         this.category = data.category
         this.posterlist = data.posterlist
+        this.recommend = data.recommend
       }
     }
   },

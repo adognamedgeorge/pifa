@@ -5,6 +5,7 @@ import Search from '@/pages/search/Search'
 import Detail from '@/pages/detail/Detail'
 import Collect from '@/pages/collect/Collect'
 import Coupon from '@/pages/coupon/Coupon'
+import Announce from '@/pages/announce/Announce'
 
 Vue.use(Router)
 
@@ -34,6 +35,11 @@ export default new Router({
       path: '/coupon',
       name: 'Coupon',
       component: Coupon
+    },
+    {
+      path: '/announce',
+      name: 'Announce',
+      component: Announce
     }
   ]
 })
