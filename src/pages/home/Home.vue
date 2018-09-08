@@ -2,9 +2,16 @@
   <div>
     <Header></Header>
     <Searcher></Searcher>
-    <home-poster :list="posterlist" :cat="category"></home-poster>
+    <home-poster :list="posterList"
+                 :cat="category"
+                 :user="user"
+                 :acc="account"
+                 :cou="couponNum"
+                 :notice="noticeList">
+    </home-poster>
     <home-bargain :list="recommend"></home-bargain>
-    <home-category></home-category>
+    <home-categoryI :cat="category"></home-categoryI>
+    <home-categoryII></home-categoryII>
     <Ads></Ads>
     <Footer></Footer>
     <Scroll></Scroll>
@@ -14,7 +21,8 @@
 <script>
 import HomePoster from './components/Poster'
 import HomeBargain from './components/Bargain'
-import HomeCategory from './components/Category'
+import HomeCategoryI from './components/CategoryI'
+import HomeCategoryII from './components/CategoryII'
 import axios from 'axios'
 
 export default {
@@ -22,13 +30,18 @@ export default {
   components: {
     HomePoster,
     HomeBargain,
-    HomeCategory
+    HomeCategoryI,
+    HomeCategoryII
   },
   data () {
     return {
-      posterlist: [],
+      user: {},
+      account: {},
+      couponNum: '',
+      posterList: [],
+      noticeList: [],
       category: [],
-      recommend: []
+      recommend: {}
     }
   },
   methods: {
@@ -40,8 +53,12 @@ export default {
       res = res.data
       if (res.ret && res.data) {
         const data = res.data
+        this.user = data.user
+        this.account = data.account
+        this.couponNum = data.couponNum
+        this.posterList = data.posterList
+        this.noticeList = data.noticeList
         this.category = data.category
-        this.posterlist = data.posterlist
         this.recommend = data.recommend
       }
     }

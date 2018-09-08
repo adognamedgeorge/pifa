@@ -6,63 +6,30 @@
     </div>
     <div class="sp-slid">
       <ul>
-        <li class="item-box">
-          <a  href="javascript:;" class="item-bg cover"> </a>
-          <div class="item-img">
-            <a href="" target="_blank"><img src="http://i8.yunmayi.com/upload/2015/04/30/7b948795d28a540658f4fc6f6da26950.jpgXXXXX!!!!!_300x300.jpg"/></a>
-          </div>
-          <div class="item-title">
-            <a href="" target="_blank">{{list.name}}</a>
-          </div>
-          <div class="item-price">
-            <i>￥</i><strong>47.9</strong>/箱
-            <span>规格:330ml*24瓶</span>
-          </div>
-          <div class="item-action">
-            <a href="javascript:;">-</a>
-            <input type="text" value="1" data-min="1"/>
-            <a href="javascript:;">+</a>
-            <a href="">进货</a>
-          </div>
-        </li>
-        <li class="item-box">
-          <a class="item-bg"> </a>
-          <div class="item-img">
-            <a href="" target="_blank"><img src="http://i8.yunmayi.com/upload/2015/04/30/7b948795d28a540658f4fc6f6da26950.jpgXXXXX!!!!!_300x300.jpg"/></a>
-          </div>
-          <div class="item-title">
-            <a href="" target="_blank">百事可乐碳酸饮料汽水，夏天必备夏</a>
-          </div>
-          <div class="item-price">
-            <i>￥</i><strong>47.9</strong>/箱
-            <span>规格:330ml*24瓶</span>
-          </div>
-          <div class="item-action">
-            <a href="javascript:;">-</a>
-            <input type="text" value="1" data-min="1"/>
-            <a href="javascript:;">+</a>
-            <a href="">进货</a>
-          </div>
-        </li>
-        <li class="item-box">
-          <a class="item-bg"> </a>
-          <div class="item-img">
-            <a href="" target="_blank"><img src="http://i8.yunmayi.com/upload/2015/04/30/7b948795d28a540658f4fc6f6da26950.jpgXXXXX!!!!!_300x300.jpg"/></a>
-          </div>
-          <div class="item-title">
-            <a href="" target="_blank">百事可乐碳酸饮料汽水，夏天必备夏</a>
-          </div>
-          <div class="item-price">
-            <i>￥</i><strong>47.9</strong>/箱
-            <span>规格:330ml*24瓶</span>
-          </div>
-          <div class="item-action">
-            <a href="javascript:;">-</a>
-            <input type="text" value="1" data-min="1"/>
-            <a href="javascript:;">+</a>
-            <a href="">进货</a>
-          </div>
-        </li>
+        <swiper :options="swiperOption" >
+          <swiper-slide>
+              <li class="item-box" v-for="item of list['products']" :key="item.id">
+                <a  href="javascript:;" class="item-bg" ></a>
+                <a  href="javascript:;" class="item-bg cover" v-if="item.isCollect"></a>
+                <div class="item-img">
+                  <a href="" target="_blank"><img src="http://i8.yunmayi.com/upload/2015/04/30/7b948795d28a540658f4fc6f6da26950.jpgXXXXX!!!!!_300x300.jpg"/></a>
+                </div>
+                <div class="item-title">
+                  <a href="" target="_blank">{{item.title}}</a>
+                </div>
+                <div class="item-price">
+                  <i>￥</i><strong>{{item.price}}</strong>/{{item.unit}}
+                  <span>规格:{{item.spec}}</span>
+                </div>
+                <div class="item-action">
+                  <a href="javascript:;">-</a>
+                  <input type="text" :value="item.minSoldNum" data-min="1"/>
+                  <a href="javascript:;">+</a>
+                  <a style="cursor:pointer;">进货</a>
+                </div>
+              </li>
+          </swiper-slide>
+        </swiper>
       </ul>
 
       <a href=""><div class="btn fl iconfont"><i>&#xe600;</i></div></a>
@@ -83,8 +50,31 @@
 export default {
   name: 'HomeBargain',
   props: {
-    list: []
+    list: Object
+  },
+  data () {
+    return {
+      swiperOption: {
+        pagination: '.swiper-pagination',
+        autoplay: 8000,
+        loop: true,
+        speed: 4000
+      }
+    }
   }
+  // computed: {
+  //   pages () {
+  //     const pages = []
+  //     this.list['products'].forEach((item, index) => {
+  //       const page = Math.floor(index / 3)
+  //       if (!pages[page]) {
+  //         pages[page] = []
+  //       }
+  //       pages[page].push(item)
+  //     })
+  //     return pages
+  //   }
+  // }
 }
 </script>
 
@@ -115,7 +105,9 @@ export default {
     position:relative;
     width:720px;
     overflow:hidden;
+    float:left;
   ul {
+    /*height:300px;*/
   @extend %item;
   .item-box {
     box-shadow:-1px 0 0 0 $bgColor3 inset;

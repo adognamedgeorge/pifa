@@ -34,17 +34,17 @@
 
     <div class="ads">
       <div class="ad1">
-        <div class="ad1-img"><img src=""/></div>
+        <div class="ad1-img"><img :src="this.user['photo']"/></div>
         <div class="ad1-text">
-          <h3>Hi, <a href="" class="active">云蚂蚁1234</a></h3>
+          <h3>Hi, <a href="" class="active">{{this.user['name']}}</a></h3>
           <p>签到可领取200积分</p>
         </div>
         <button><a>签到</a></button>
       </div>
       <ul class="ads-ul">
-        <li><h3>1314.59</h3><a href="">余额</a></li>
-        <li><h3>4</h3><a href="">优惠券</a></li>
-        <li><h3>182310</h3><a href="">积分</a></li>
+        <li><h3>{{this.acc['balance']}}</h3><a href="">余额</a></li>
+        <li><h3>{{this.cou}}</h3><a href="">优惠券</a></li>
+        <li><h3>{{this.acc['integral']}}</h3><a href="">积分</a></li>
       </ul>
       <div class="ad2">
         <ul>
@@ -60,9 +60,7 @@
         </div>
         <div class="ad-b">
           <ul>
-            <li><a href="">8月爆品预售来袭</a></li>
-            <li><a href="">【通知】6月27日订单配送通知</a></li>
-            <li><a href="">法丽兹系列调价通知</a></li>
+            <li v-for="item of notice" :key="item.id"><a href="">{{item.text}}</a></li>
           </ul>
         </div>
       </div>
@@ -75,17 +73,21 @@
 export default {
   name: 'HomePoster',
   props: {
+    user: Object,
+    acc: Object,
+    cou: String,
+    notice: Array,
     list: Array,
-    cat: []
+    cat: Array
   },
   data () {
     return {
       swiperOption: {
         pagination: '.swiper-pagination',
         loop: true,
-        autoplay: 4000,
+        autoplay: 6000,
         paginationClickable: true,
-        speed: 2000,
+        speed: 3000,
         paginationBulletRender: function (swiper, index, className) {
           return '<span class="' + className + '">' + (index + 1) + '</span>'
         }
@@ -138,67 +140,76 @@ export default {
       position:relative;
       .list {
         background-color: $bgColor2;
-        height: 324px;
-        padding-top: 6px;
-        ul li {
-          .list-a {
-            height: 36px;
-            line-height: 36px;
-            a {
-              font-size: 14px;
-              padding-right: 12px;
-              color: rgba(153, 153, 153, 1);
-            }
-            a:first-child {
-              display: inline-block;
-              width: 56px;
-              color: rgba(51, 51, 51, 1);
-              padding-left: 20px;
-            }
-            a:hover {
-              color: rgba(254, 229, 61, 1) !important;
-            }
-          }
-          .list-a:hover {
-            background-color: rgba(230, 45, 45, 1);
-            a {
-              color: $color;
-            }
-          }
-          .mulu-hide {
-            background-color: $color;
-            width: 240px;
-            height: 302px;
-            position: absolute;
-            left: 230px;
-            bottom: 0;
-            padding-left:10px;
-            padding-top:28px;
-            display: none;
-            border:1px solid rgba(230,45,45,1);
-            p {
-              height:18px;
-              line-height:18px;
-              font-size:14px;
-              color:rgba(51,51,51,1);
-              margin-bottom:16px;
-            }
-            div {
-              max-width:240px;
-              overflow:hidden;
+        height: 330px;
+        ul:hover {height:unset;background-color:$bgColor2;}
+        ul {
+          padding-top: 6px;
+          height: 324px;
+          overflow: hidden;
+          background-color:$bgColor2;
+          li {
+            .list-a {
+              height: 36px;
+              line-height: 36px;
               a {
-                display:inline-block;
-                float:left;
-                font-size:14px;
-                color:rgba(153,153,153,1);
-                margin-right:20px;
-                margin-bottom:10px;
+                font-size: 14px;
+                padding-right: 12px;
+                color: rgba(153, 153, 153, 1);
+              }
+              a:first-child {
+                display: inline-block;
+                width: 56px;
+                color: rgba(51, 51, 51, 1);
+                padding-left: 20px;
+              }
+              a:hover {
+                color: rgba(254, 229, 61, 1) !important;
+              }
+            }
+            .list-a:hover {
+              background-color: rgba(230, 45, 45, 1);
+              a {
+                color: $color;
+              }
+            }
+            .mulu-hide {
+              background-color: $color;
+              width: 240px;
+              height: 302px;
+              position: absolute;
+              left: 230px;
+              bottom: 0;
+              padding-left: 10px;
+              padding-top: 28px;
+              display: none;
+              border: 1px solid rgba(230, 45, 45, 1);
+              p {
+                height: 18px;
+                line-height: 18px;
+                font-size: 14px;
+                color: rgba(51, 51, 51, 1);
+                margin-bottom: 16px;
+              }
+              div {
+                max-width: 240px;
+                overflow: hidden;
+                a {
+                  display: inline-block;
+                  float: left;
+                  font-size: 14px;
+                  color: rgba(153, 153, 153, 1);
+                  margin-right: 20px;
+                  margin-bottom: 10px;
+                }
               }
             }
           }
-        }
-        li:hover {
-          div+div {display:block; z-index: 5;}
+          li:hover {
+            div + div {
+              display: block;
+              z-index: 5;
+            }
+          }
         }
       }
     }
@@ -235,6 +246,8 @@ export default {
           border-radius: 50%;
           margin: 14px 10px 5px 10px;
           background-color: rgba(224, 224, 224, 1);
+          overflow:hidden;
+          img {height:100%;width:100%;}
         }
         .ad1-text {
           height: 37px;
@@ -267,13 +280,17 @@ export default {
         display: flex;
         display:-ms-flexbox;
         justify-content: space-around;
-        padding-bottom: 13px;
+        padding:0 10px 13px 10px;
         li {
           display: inline-block;
           float:left;
+          width:30%;
           h3 {
             font-size: 16px;
             color: rgba(51, 51, 51, 1);
+            overflow:hidden;
+            text-overflow:ellipsis;
+            white-space:nowrap;
           }
           a {
             font-size: 12px;
@@ -357,8 +374,13 @@ export default {
           height:70px;
           padding-top:8px;
           a {
+            display:inline-block;
+            width:90%;
             font-size:12px;
             color:rgba(102,102,102,1);
+            white-space:nowrap;
+            overflow:hidden;
+            text-overflow:ellipsis;
           }
           a:hover {
             text-decoration:underline;

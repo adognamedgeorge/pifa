@@ -61,7 +61,7 @@
         </div>
 
         <div class="search_img">
-          <a href=""> <img src="../../assets/imgs/2.png" alt="云蚂蚁app二维码"/></a>
+          <img src="../../assets/imgs/2.png" alt="云蚂蚁app二维码"/>
         </div>
       </div>
 
@@ -161,7 +161,9 @@ export default {
             float:right;
             font-size:18px;
             color:rgba(255,255,255,1);
+            cursor:pointer;
           }
+          button:active {background-color:rgba(230,45,45,.6);color:rgba(255,255,255,.4);}
         }
 
         .search_cart {
@@ -410,6 +412,9 @@ export default {
 
       ul {
         display:inline-block;
+        width:720px;
+        height:30px;
+        overflow:hidden;
         li {
           float:left;
           padding-left: 30px;
