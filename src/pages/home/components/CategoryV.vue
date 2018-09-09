@@ -50,7 +50,7 @@
 <script>
 import axios from 'axios'
 export default {
-  name: 'HomeCategoryII',
+  name: 'HomeCategoryV',
   data () {
     return {
       list: [],
@@ -91,7 +91,7 @@ export default {
       .c-left {
         width:230px;
         height:610px;
-        background-color:#FCC89A;
+        background-color:#DCC38E;
         .left-t {
           width:210px;
           height:264px;

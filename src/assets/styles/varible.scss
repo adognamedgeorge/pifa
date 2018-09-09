@@ -130,6 +130,10 @@ $bgColor3: rgba(245,245,245,1);
         border:none;
         font-weight:normal;
       }
+      a:last-child:active {
+        opacity:.6;
+        filter:Alpha(opacity=60);
+      }
     }
   }
   li:hover {

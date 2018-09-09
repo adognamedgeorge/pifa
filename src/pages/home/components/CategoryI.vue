@@ -35,8 +35,8 @@
               </div>
               <div class="item-action" >
                 <a href="javascript:;" @click="reduce(index)">-</a>
-                <input type="text" :value="item.minSoldNum"/>
-                <a href="javascript:;" @click="plus(index)">+</a>
+                <input type="text" :value="parseInt(item.minSoldNum) + parseInt(item.num)"/>
+                <a href="javascript:;" @click="plus(index, item)">+</a>
                 <a style="cursor:pointer;">进货</a>
               </div>
             </li>
@@ -69,16 +69,17 @@ export default {
       res = res.data
       if (res.ret && res.data) {
         const data = res.data
-        this.list = data.categoryList
+        this.list = data.categoryList1
         this.sorts = data.sortsList1
       }
     },
     plus (index) {
-      this.list[index].minSoldNum++
+      this.list[index].num++
+      console.log(this.list[index].minSoldNum)
     },
     reduce (index) {
-      if (this.list[index].minSoldNum < 10) return
-      this.list[index].minSoldNum--
+      if (this.list[index].num <= 0) return
+      this.list[index].num--
     }
   },
   mounted () {
@@ -116,7 +117,6 @@ export default {
             overflow:hidden;
             a {
               color:$color;
-              font-family:PingFang-SC-Medium;
               font-size:36px;
               display:inline-block;
               height:44px;

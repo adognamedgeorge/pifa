@@ -18,45 +18,35 @@
         <div class="search_cart">
           <span class="cart-p"><a class="cart-bg1" href=""> </a>进货单<i> </i></span>
           <span class="cart-span">{{this.cartNum}}</span>
-          <a class="cart-bg2" href=""> </a>
+          <a class="cart-bg2" style="cursor:pointer;"> </a>
 
           <div class="cart-hide">
-            <h3>新加入的商品</h3>
-            <ul>
-              <li>
-                <a class="ch-img" href=""><img src="../../assets/imgs/4.png"/></a>
-                <div class="ch-content">
-                  <p class="ch-text"><a href="#">芝士印尼进口丽姿势姿势姿势姿势姿势</a></p>
-                  <div>
-                    <a href="javascript:;">-</a>
-                    <input type="text" value="8" data-min="0"/>
-                    <a href="javascript:;">+</a>
-                    <span>￥<strong>49.5</strong></span>
+            <section class="cart_hide_section1" v-show="!cartNum">
+                <p>当前您还未进货，快去抢购吧</p>
+            </section>
+
+            <section class="cart_hide_section2">
+              <h3>新加入的商品</h3>
+              <ul>
+                <li>
+                  <a class="ch-img" href=""><img src="../../assets/imgs/4.png"/></a>
+                  <div class="ch-content">
+                    <p class="ch-text"><a href="#">芝士印尼进口丽姿势姿势姿势姿势姿势</a></p>
+                    <div>
+                      <a href="javascript:;">-</a>
+                      <input type="text" value="8" data-min="0"/>
+                      <a href="javascript:;">+</a>
+                      <span>￥<strong>49.5</strong></span>
+                    </div>
                   </div>
-                </div>
-              </li>
-              <li>2</li>
-              <li>
-                <a class="ch-img" href=""><img src="../../assets/imgs/4.png"/></a>
-                <div class="ch-content">
-                  <p class="ch-text"><a href="#">芝士印尼进口丽姿势姿势姿势姿势姿势</a></p>
-                  <div>
-                    <a href="javascript:;">-</a>
-                    <input type="text" value="8" data-min="0"/>
-                    <a href="javascript:;">+</a>
-                    <span>￥<strong>49.5</strong></span>
-                  </div>
-                </div>
-              </li>
-              <li>3</li>
-              <li>2</li>
-              <li>3</li>
-              <li>3</li>
-            </ul>
-            <div class="hide-footer">
-              共计<span>￥<strong>198</strong></span>
-              <a href="" target="_blank">去结算</a>
-            </div>
+                </li>
+                <li>2</li>
+              </ul>
+              <div class="hide-footer">
+                共计<span>￥<strong>198</strong></span>
+                <a href="" target="_blank">去结算</a>
+              </div>
+            </section>
           </div>
         </div>
 
@@ -238,6 +228,13 @@ export default {
             transition:max-height .6s linear;
             -webkit-transition:max-height .6s linear;
             -moz-transition:max-height .6s linear;
+            .cart_hide_section1 {
+              height:200px;
+              color:rgba(153,153,153,1);
+              font-size:14px;
+              text-align:center;
+              margin-top:41px;
+            }
             h3 {
               height:14px;
               line-height:14px;

@@ -50,7 +50,7 @@
 <script>
 import axios from 'axios'
 export default {
-  name: 'HomeCategoryII',
+  name: 'HomeCategoryIX',
   data () {
     return {
       list: [],
@@ -80,7 +80,7 @@ export default {
 <style lang="scss" scoped>
   @import '~@/assets/styles/varible.scss';
   #categories {
-    padding-bottom:30px;
+    padding-bottom:50px;
     background-color:$bgColor3;
     @extend %wrapper;
     .category {
@@ -91,7 +91,7 @@ export default {
       .c-left {
         width:230px;
         height:610px;
-        background-color:#FCC89A;
+        background-color:#FB8F8F;
         .left-t {
           width:210px;
           height:264px;
