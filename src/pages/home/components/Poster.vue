@@ -85,7 +85,7 @@ export default {
       swiperOption: {
         pagination: '.swiper-pagination',
         loop: true,
-        autoplay: 6000,
+        autoplay: 2000,
         paginationClickable: true,
         speed: 3000,
         paginationBulletRender: function (swiper, index, className) {

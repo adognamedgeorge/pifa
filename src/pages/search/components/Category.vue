@@ -185,6 +185,12 @@ export default {
           width:50px;
           height:40px;
           margin-left:5px;
+          cursor:pointer;
+          outline:none;
+        }
+        button:active {
+          opacity:.5;
+          filter:Alpha(opacity=50);
         }
       }
     }

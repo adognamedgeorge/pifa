@@ -17,21 +17,21 @@
 
         <div class="search_cart">
           <span class="cart-p"><a class="cart-bg1" href=""> </a>进货单<i> </i></span>
-          <span class="cart-span">{{this.cartNum}}</span>
-          <a class="cart-bg2" style="cursor:pointer;"> </a>
+          <span class="cart-span" >{{this.cartNum}}</span>
+          <a class="cart-bg2" style="cursor:pointer;" @click="getData">{{this.total}}</a>
 
           <div class="cart-hide">
             <section class="cart_hide_section1" v-show="!cartNum">
                 <p>当前您还未进货，快去抢购吧</p>
             </section>
 
-            <section class="cart_hide_section2">
+            <section class="cart_hide_section2" v-show="cartNum">
               <h3>新加入的商品</h3>
               <ul>
-                <li>
+                <li v-for="item of cartList" :key="item.id">
                   <a class="ch-img" href=""><img src="../../assets/imgs/4.png"/></a>
                   <div class="ch-content">
-                    <p class="ch-text"><a href="#">芝士印尼进口丽姿势姿势姿势姿势姿势</a></p>
+                    <p class="ch-text"><a href="#">{{item.title}}</a></p>
                     <div>
                       <a href="javascript:;">-</a>
                       <input type="text" value="8" data-min="0"/>
@@ -40,7 +40,6 @@
                     </div>
                   </div>
                 </li>
-                <li>2</li>
               </ul>
               <div class="hide-footer">
                 共计<span>￥<strong>198</strong></span>
@@ -51,7 +50,7 @@
         </div>
 
         <div class="search_img">
-          <img src="../../assets/imgs/2.png" alt="云蚂蚁app二维码"/>
+          <img src="../../assets/imgs/2.png" alt="云蚂蚁app二维码" title="扫码下载云蚂蚁官方APP"/>
         </div>
       </div>
 
@@ -68,12 +67,15 @@
 
 <script>
 import axios from 'axios'
+import Link from './public_js/link.js'
 export default {
   name: 'HomeSearcher',
   data () {
     return {
-      cartNum: '',
-      cat: []
+      cartNum: 0,
+      cat: [],
+      cartList: [],
+      total: 0
     }
   },
   methods: {
@@ -87,11 +89,21 @@ export default {
         const data = res.data
         this.cartNum = data.cartNum
         this.cat = data.category
+        this.cartList = data.cartList
       }
+    },
+    getData () {
+      const arr = [0]
+      arr.push(this.total)
+      console.log(arr)
     }
   },
   mounted () {
     this.getHomeInfo()
+    const vm = this
+    Link.$on('val', (dat) => {
+      vm.total = dat
+    })
   }
 }
 </script>
@@ -250,7 +262,7 @@ export default {
               li {
                 height:40px;
                 padding:15px 0 15px 10px;
-                box-shadow:0 -1px 0 0 rgba(242,242,242,1);
+                box-shadow:0 1px 0 0 rgba(242,242,242,1);
                 .ch-img {
                   width:38px;
                   height:38px;

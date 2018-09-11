@@ -36,8 +36,8 @@
               <div class="item-action" >
                 <a href="javascript:;" @click="reduce(index)">-</a>
                 <input type="text" :value="parseInt(item.minSoldNum) + parseInt(item.num)"/>
-                <a href="javascript:;" @click="plus(index, item)">+</a>
-                <a style="cursor:pointer;">进货</a>
+                <a href="javascript:;" @click="plus(index)">+</a>
+                <a style="cursor:pointer;" @click="add(index)">进货{{parseInt(item.minSoldNum) + parseInt(item.num)}}</a>
               </div>
             </li>
           </ul>
@@ -49,6 +49,7 @@
 
 <script>
 import axios from 'axios'
+import Link from '../../public/public_js/link.js'
 export default {
   name: 'HomeCategoryI',
   props: {
@@ -71,6 +72,7 @@ export default {
         const data = res.data
         this.list = data.categoryList1
         this.sorts = data.sortsList1
+        this.cartNum = data.cartNum
       }
     },
     plus (index) {
@@ -80,6 +82,9 @@ export default {
     reduce (index) {
       if (this.list[index].num <= 0) return
       this.list[index].num--
+    },
+    add (index) {
+      Link.$emit('val', parseInt(this.list[index].minSoldNum) + parseInt(this.list[index].num))
     }
   },
   mounted () {

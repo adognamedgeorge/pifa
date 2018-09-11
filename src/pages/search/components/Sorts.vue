@@ -14,7 +14,7 @@
         </div>
       </div>
 
-      <div class="sm-brand sm-height">
+      <div class="sm-brand" :class="{show: showHeight, hide: hideHeight}">
         <h3>品牌</h3>
         <div>
           <a href="">维他奶</a><a href="">酒水饮</a><a href="">冰淇</a><a href="">日用洗</a><a href="">家用百</a><a href="">九五折</a>
@@ -26,15 +26,30 @@
           <a href="">食零食</a><a href="">酒水料</a><a href="">冰淇淋</a><a href="">日用护</a><a href="">家百货</a><a href="">九五折专区</a>
           <a href="">速冻品</a><a href="">母婴品</a><a href="">粮油味</a>
         </div>
-        <a href="#" class="sm-more">更多</a>
-        <span class="sm-more-bg"> </span>
+        <a class="sm-more" @click="overShow" >{{text}}<span class="sm-more-bg" :class="{hover: iconTurn}"> </span></a>
       </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'SearchSorts'
+  name: 'SearchSorts',
+  data () {
+    return {
+      showHeight: false,
+      hideHeight: true,
+      text: '更多',
+      iconTurn: false
+    }
+  },
+  methods: {
+    overShow () {
+      this.showHeight = !this.showHeight
+      this.hideHeight = !this.hideHeight
+      this.showHeight ? this.text = '收起' : this.text = '更多'
+      this.iconTurn = !this.iconTurn
+    }
+  }
 }
 </script>
 
@@ -80,10 +95,12 @@ export default {
       border-top:none;
       font-size:14px;
       overflow:hidden;
+      position:relative;
       @extend %h3a;
       h3 {
         line-height:40px;
-        min-height:100%;
+        height:inherit;
+        position:absolute;
       }
       div {
         padding-top:7px;
@@ -91,6 +108,7 @@ export default {
         width:1030px;
         float:left;
         line-height:26px;
+        margin-left:80px;
       }
       .sm-more {
         padding-top:10px;
@@ -98,6 +116,7 @@ export default {
         color:rgba(153,153,153,1);
         font-size:14px;
         float:left;
+        cursor:pointer;
       }
       .sm-more-bg {
         display:inline-block;
@@ -105,15 +124,18 @@ export default {
         height:16px;
         background:$Sprite;
         background-position:0 0;
-        float:left;
-        margin-top:12px;
+        margin-bottom:-3px;
       }
-      .sm-more-bg:hover {
+      .hover {
         transform:rotate(180deg);
         -webkit-transform:rotate(180deg);
       }
     }
-    .sm-height {
+
+    .show {
+      height:100%;
+    }
+    .hide {
       height:92px;
     }
   }
