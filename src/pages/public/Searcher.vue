@@ -17,7 +17,7 @@
 
         <div class="search_cart">
           <span class="cart-p"><a class="cart-bg1" href=""> </a>进货单<i> </i></span>
-          <span class="cart-span" >{{this.cartNum}}</span>
+          <span class="cart-span">{{this.cartNum}}</span>
           <a class="cart-bg2" style="cursor:pointer;" @click="getData">{{this.total}}</a>
 
           <div class="cart-hide">
@@ -55,11 +55,19 @@
       </div>
 
       <div class="search_bar">
-        <h2>全部商品分类</h2>
-        <ul>
+        <section>
+          <h2>全部商品分类</h2>
+        </section>
+
+        <ul class="search_bar_ul">
           <li><a href="">首页</a></li>
           <li v-for="item of cat" :key="item.id"><a href="">{{item.name}}</a></li>
         </ul>
+
+        <div class="search_bar_hide">
+          123
+        </div>
+
       </div>
     </div>
   </div>
@@ -409,17 +417,19 @@ export default {
       width:100%;
       float:left;
       overflow:hidden;
-      h2 {
+      section {
         background-color: rgba(230, 45, 45, 1);
         color: $color;
         text-align: center;
         display:inline-block;
         width:230px;
         float:left;
-        font-size:16px;
+        h2 {
+          font-size:16px;
+        }
       }
 
-      ul {
+      .search_bar_ul {
         display:inline-block;
         width:720px;
         height:30px;
@@ -435,6 +445,12 @@ export default {
             background-color: #f2f2f2;
           }
         }
+      }
+
+      .search_bar_hide {
+        width:230px;
+        height:100px;
+        background:red;
       }
     }
   }

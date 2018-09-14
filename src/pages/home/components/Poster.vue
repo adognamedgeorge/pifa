@@ -143,9 +143,9 @@ export default {
         height: 330px;
         ul:hover {height:unset;background-color:$bgColor2;}
         ul {
-          padding-top: 6px;
           height: 324px;
           overflow: hidden;
+          padding:6px 18px 0 8px;
           background-color:$bgColor2;
           li {
             .list-a {
@@ -153,14 +153,14 @@ export default {
               line-height: 36px;
               a {
                 font-size: 14px;
-                padding-right: 12px;
+                padding-left: 12px;
                 color: rgba(153, 153, 153, 1);
+                float:left;
               }
               a:first-child {
                 display: inline-block;
                 width: 56px;
                 color: rgba(51, 51, 51, 1);
-                padding-left: 20px;
               }
               a:hover {
                 color: rgba(254, 229, 61, 1) !important;

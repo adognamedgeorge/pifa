@@ -3,7 +3,7 @@
      <button>可领取</button>
      <button>已领取</button>
      <button>如何使用</button>
-     <label href="">我的优惠券</label>
+     <label>我的优惠券</label>
 
      <div class="content1">
        <ul>
