@@ -31,9 +31,6 @@ textarea {
   overflow: auto; }
 
 body {
-  font-weight: Regular;
-  font-family: PingFang-SC;
-  background-color: #f2f2f2;
-  overflow-x: hidden; }
+  font-family: PingFang-SC; }
 
 /*# sourceMappingURL=reset.css.map */
