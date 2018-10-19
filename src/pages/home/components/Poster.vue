@@ -93,6 +93,7 @@ export default {
         autoplay: 2000,
         paginationClickable: true,
         speed: 3000,
+        mousewheelControl: true,
         paginationBulletRender: function (swiper, index, className) {
           return '<span class="' + className + '">' + (index + 1) + '</span>'
         }

@@ -1,7 +1,7 @@
 <template>
-  <div class="categories">
+  <div class="categories" ref="box"> <!--ref注册引用信息-->
     <div class="wrapper" >
-        <div  class="category" v-for="(item,index1) of categories" :key="item.id">
+        <div :id="'c_' + index1" class="category" v-for="(item,index1) of categories" :key="item.id">
           <div class="c_left">
             <div class="left_t">
               <div class="ca_title">
@@ -49,6 +49,7 @@
 
 <script>
 import axios from 'axios'
+// 定义个公共的公共实例文件link.js，作为中间仓库来传值(非父子组件之间)
 import Link from '../../public/public_js/link.js'
 export default {
   name: 'HomeCategoryI',
@@ -81,17 +82,23 @@ export default {
     },
     add (index1, index) {
       // Link.$emit('val', parseInt(this.list[index].minSoldNum) + parseInt(this.list[index].num))
-      let catList = this.categories[index1]['categoryList'][index]
+      const catList = this.categories[index1]['categoryList'][index]
+      // 点击进货传值给进货单
       Link.$emit('val',
         { 'imgUrl': catList.img,
           'title': catList.title,
           'minSoldNum': catList.minSoldNum,
           'price': catList.price
         })
+    },
+    handleScroll () {
+      const scroll = this.$refs.box.offsetTop
+      Link.$emit('val', scroll)
     }
   },
   mounted () {
     this.getHomeInfo()
+    window.addEventListener('scroll', this.handleScroll)
   }
 }
 </script>

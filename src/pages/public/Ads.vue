@@ -1,7 +1,7 @@
 <template>
   <div id="line">
     <div class="wrapper">
-      <div class="line-img-box">
+      <div class="line_img_box">
         <img src="http://pifa.yunmayi.com/statics/images/index/0502.jpg"/>
       </div>
     </div>
@@ -20,10 +20,10 @@ export default {
     background-color:$bgColor2;
     overflow:hidden;
     @extend %wrapper;
-    .line-img-box {
-      height:84px;
-      padding-top:8px;
-      padding-bottom:8px;
+    .line_img_box {
+      height: 84px;
+      padding-top: 8px;
+      padding-bottom: 8px;
       img {
         /*width:100%;*/
       }

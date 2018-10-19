@@ -13,7 +13,7 @@
     <home-category></home-category>
     <Ads></Ads>
     <Footer></Footer>
-    <Scroll></Scroll>
+    <Scroll :list="categories"></Scroll>
   </div>
 </template>
 
@@ -38,7 +38,8 @@ export default {
       posterList: [],
       noticeList: [],
       category: [],
-      recommend: {}
+      recommend: {},
+      categories: []
     }
   },
   methods: {
@@ -57,6 +58,7 @@ export default {
         this.noticeList = data.noticeList
         this.category = data.category
         this.recommend = data.recommend
+        this.categories = data.categories
       }
     }
   },

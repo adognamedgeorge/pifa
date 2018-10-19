@@ -1,37 +1,50 @@
 <template>
-  <div id="scrollTop" v-show="goTopShow" >
+  <div id="scrollTop" v-show="goTopShow" ref="box"> <!-- ref注册引用信息 -->
     <ul>
-      <li class="scr-li"><a href="#special" class="iconfont">限时特价<i>&#xe600;</i></a></li>
-      <li class="scr-li"><a href="#c1" class="iconfont">酒水饮料<i>&#xe600;</i></a></li>
-      <li class="scr-li"><a href="#c2" class="iconfont">食品零食<i>&#xe600;</i></a></li>
-      <li class="scr-li"><a href="#c3" class="iconfont">粮油调味<i>&#xe600;</i></a></li>
-      <li class="scr-li"><a href="#c4" class="iconfont">日用洗护<i>&#xe600;</i></a></li>
-      <li class="scr-li"><a href="#c5" class="iconfont">家用百货<i>&#xe600;</i></a></li>
-      <li class="scr-li"><a href="#c6" class="iconfont">冰淇淋<i>&#xe600;</i></a></li>
-      <li class="scr-li"><a href="#c7" class="iconfont">速冻食品<i>&#xe600;</i></a></li>
-      <li class="scr-li"><a href="#c8" class="iconfont">尾品汇<i>&#xe600;</i></a></li>
-      <li class="scr-li"><a href="#c9" class="iconfont">特价区<i>&#xe600;</i></a></li>
-      <li class="scr-li toTop" @click="backTop"><a href="#" class="iconfont">返回顶部<i>&#xe62d;</i></a></li>
+      <li class="scr_li" :class="{selected: isTrue}" ref="liHeight"><a href="#special" class="iconfont clearfix">限时特价<i>&#xe600;</i></a></li>
+      <li class="scr_li" v-for="(item,index) of list" :key="item.id" :class="{selected: currentIndex === index}" ref="liItem">
+        <a :href="'#c_' + index" class="iconfont clearfix">{{item.sideTitle}}<i>&#xe600;</i></a>
+      </li>
+      <li class="scr_li toTop" @click="backTop"><a href="#" class="iconfont clearfix">返回顶部<i>&#xe62d;</i></a></li>
     </ul>
   </div>
 </template>
 
 <script>
+import Link from './public_js/link.js'
 export default {
   name: 'Scroll',
+  props: {
+    list: Array
+  },
   data () {
     return {
       scrollTop: '',
-      goTopShow: false
+      goTopShow: false,
+      isTrue: false,
+      currentIndex: null
     }
   },
   methods: {
     handleScroll () {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
-      if (scrollTop > 350) {
+      // 侧栏的offsetTop // 侧栏高度height // liItem:侧栏li的个数（除去首尾）
+      const scrollBox = this.$refs.box.offsetTop
+      const liH = this.$refs.liHeight.offsetHeight
+      const liItem = this.$refs.liItem
+
+      if (scrollTop > 400) {
+        const scrollTopDis = scrollTop - this.catTop + scrollBox + liH
+        console.log(scrollTop, this.catTop, scrollBox, liH)
         this.goTopShow = true
-      } else if (scrollTop < 350) {
+        scrollTop > 730 ? this.isTrue = false : this.isTrue = true
+        scrollTopDis >= 0 && scrollTopDis < 610 ? this.currentIndex = 0 : this.currentIndex = -1
+        // scrollTopDis > 610 * 1 && scrollTopDis < 610 * 2 ? this.currentIndex = 1 : this.currentIndex = 0
+        // scrollTopDis > 610 * 2 && scrollTopDis < 610 * 3 ? this.currentIndex = 2 : this.currentIndex = 1
+        // scrollTopDis >= 0 && scrollTopDis < 610 ? this.currentIndex = 0 : this.currentIndex = -1
+      } else if (scrollTop < 400) {
         this.goTopShow = false
+        this.isTrue = false
       }
     },
     backTop () {
@@ -42,13 +55,17 @@ export default {
       //   } else {
       //     clearInterval(back)
       //   }
-      // })
+      // }, 2000)
       const bTop = document.body || document.documentElement
       bTop.scrollTop = 0
     }
   },
   mounted () {
     window.addEventListener('scroll', this.handleScroll)
+    const vm = this
+    Link.$on('val', (dat) => {
+      vm.catTop = dat
+    })
   },
   destroyed () {
     window.removeEventListener('scroll', this.handleScroll)
@@ -59,39 +76,46 @@ export default {
 <style lang="scss" scoped>
   @import '~@/assets/styles/varible.scss';
   #scrollTop {
-    position:fixed;
-    top:130px;
-    left:50%;
-    width:80px;
-    height:350px;
-    margin-left:-677px;
-    background-color:#F2F2F2;
-    z-index:7;
-    .scr-li {
-      height:30px;
-      width:80px;
-      background-color:rgba(0,0,0,0.4);
-      line-height:30px;
-      text-align:center;
-      margin-bottom:2px;
+    position: fixed;
+    top: 130px;
+    left: 50%;
+    width: 80px;
+    margin-left: -677px;
+    background-color: #F2F2F2;
+    z-index: 7;
+    .scr_li {
+      height: 30px;
+      width: 68px;
+      background-color: rgba(0,0,0,0.4);
+      line-height: 30px;
+      margin-bottom: 2px;
+      padding: 0 6px;
       a {
-        font-size:14px;
-        color:$color;
+        font-size: 14px;
+        color: $color;
+        display: block;
       }
       i {
-        font-size:9px;
+        font-size: 9px;
+        float: right;
       }
     }
-    .scr-li:hover {
-      background-color:rgba(230,45,45,1);
-      /*opacity:.7;*/
-      /*filter:Alpha(opacity=70);*/
+    .scr_li:hover {
+      background-color: rgba(230,45,45,1);
     }
     .selected {
-      background-color:rgba(230,45,45,1);
+      background-color: rgba(230,45,45,1);
     }
     .toTop {
-      background-color:rgba(0,0,0,0.2);
+      background-color: rgba(0,0,0,0.2);
     }
+  }
+  .clearfix:before, .clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+  .clearfix {
+    zoom: 1;
   }
 </style>
