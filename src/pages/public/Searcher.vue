@@ -14,41 +14,7 @@
             <input type="text" placeholder="搜索商品关键字，品牌"/>
             <button type="submit">搜索</button>
         </div>
-
-        <div class="search_cart">
-          <span class="cart_p"><a class="cart_bg1" href=""> </a>进货单<i> </i></span>
-          <span class="cart_span">{{this.newArr.length}}</span>
-          <a class="cart_bg2" @click="getData"></a>
-
-          <div class="cart_hide">
-            <section class="cart_hide_section1" v-show="!cartNum">
-                <p>当前您还未进货，快去抢购吧</p>
-            </section>
-
-            <section class="cart_hide_section2" v-show="cartNum">
-              <h3>新加入的商品</h3>
-              <ul>
-                <li v-for="item of newArr" :key="item.index">
-                  <a class="ch_img" href=""><img :src="item.imgUrl" /></a>
-                  <div class="ch_content">
-                    <p class="ch_text"><a href="#">{{item.title}}</a></p>
-                    <div>
-                      <a href="javascript:;">-</a>
-                      <input type="text" :value="item.minSoldNum" :data-min="item.minSoldNum"/>
-                      <a href="javascript:;">+</a>
-                      <span>￥<strong>{{item.price}}</strong></span>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-              <div class="hide_footer">
-                共计<span>￥<strong>198</strong></span>
-                <a href="" target="_blank">去结算</a>
-              </div>
-            </section>
-          </div>
-        </div>
-
+      <Cart></Cart>
         <div class="search_img">
           <img src="../../assets/imgs/2.png" alt="云蚂蚁app二维码" title="扫码下载云蚂蚁官方APP"/>
         </div>
@@ -61,12 +27,8 @@
 
         <ul class="search_bar_ul">
           <li><a href="">首页</a></li>
-          <li v-for="item of cat" :key="item.id"><a href="">{{item.name}}</a></li>
+          <li v-for="item of sortsList" :key="item.id"><a href="">{{item.name}}</a></li>
         </ul>
-
-        <!--<div class="search_bar_hide">-->
-          <!--123-->
-        <!--</div>-->
 
       </div>
     </div>
@@ -81,7 +43,7 @@ export default {
   data () {
     return {
       cartNum: 0,
-      cat: [],
+      sortsList: [],
       cartList: [],
       newArr: []
     }
@@ -96,14 +58,9 @@ export default {
       if (res.ret && res.data) {
         const data = res.data
         this.cartNum = data.cartNum
-        this.cat = data.category
         this.cartList = data.cartList
+        this.sortsList = data.sortsList
       }
-    },
-    getData () {
-      const arr = [0]
-      arr.push(this.total)
-      console.log(arr)
     }
   },
   mounted () {
@@ -178,234 +135,6 @@ export default {
           }
           button:active { background-color: rgba(230,45,45,.6); color: rgba(255,255,255,.4);}
         }
-
-        .search_cart {
-          width: 148px;
-          height: 38px;
-          margin: 47px 56px 33px 50px;
-          float: left;
-          border: 1px solid rgba(0,0,0,0.2);
-          position: relative;
-          z-index: 999;
-          font-size: 14px;
-          span {
-            display: inline-block;
-            }
-
-          .cart_p {
-            color: rgba(51, 51, 51, 1);
-            line-height: 26px;
-            height: 33px;
-            padding-top: 7px;
-            text-indent: 6px;
-            padding-left: 22px;
-            float: left;
-            .cart_bg1 {
-              background: $Sprite;
-              background-position: -32px 0;
-              width: 24px;
-              height: 24px;
-              display: inline-block;
-              float: left;
-            }
-            i {
-              width: 1px;
-              height: 13px;
-              background: rgba(0, 0, 0, 0.2);
-              display: inline-block;
-              margin: 0 6px -2px 6px;
-            }
-          }
-
-          .cart_span {
-            color: rgba(230, 45, 45, 1);
-            line-height: 40px;
-            overflow: hidden;
-            max-width: 27px;
-            float: left;
-          }
-
-          .cart_bg2 {
-            width: 16px;
-            height: 16px;
-            background: $Sprite;
-            background-position: 0 0;
-            display: inline-block;
-            float: left;
-            margin-top: 13px;
-            cursor: pointer;
-          }
-          .cart_hide {
-            width: 238px;
-            max-height: 0;
-            background: $color;
-            box-shadow: 0 2px 5px 0 rgba(0,0,0,0.1);
-            padding-right: 2px;
-            overflow: hidden;
-            transition: max-height .6s linear;
-            -webkit-transition: max-height .6s linear;
-            -moz-transition: max-height .6s linear;
-            .cart_hide_section1 {
-              height: 200px;
-              color: rgba(153,153,153,1);
-              font-size: 14px;
-              text-align: center;
-              margin-top: 41px;
-            }
-            h3 {
-              height: 14px;
-              line-height: 14px;
-              padding-top: 7px;
-              padding-bottom: 9px;
-              padding-left: 10px;
-              font-size: 14px;
-              color: rgba(0,0,0,0.8);
-            }
-            ul {
-              height: 210px;
-              overflow: auto;
-              li {
-                height: 40px;
-                padding: 15px 0 15px 10px;
-                box-shadow: 0 1px 0 0 rgba(242,242,242,1);
-                .ch_img {
-                  width: 38px;
-                  height: 38px;
-                  border: 1px solid rgba(230,230,230,1);
-                  background-color: rgba(216,216,216,1);
-                  float: left;
-                  margin-right: 10px;
-                  img {
-                    width: 100%;
-                    height: 100%;
-                  }
-                }
-                .ch_content {
-                  width: 151px;
-                  height: 40px;
-                  float: left;
-                  padding-right: 9px;
-                  .ch_text {
-                    height: 16px;
-                    line-height: 16px;
-                    overflow: hidden;
-                    margin-bottom: 4px;
-                    width: 151px;
-                    position: relative;
-                    a {
-                      font-size: 12px;
-                      color: rgba(153,153,153,1);
-                    }
-                  }
-                  .ch_text::after {
-                    content: '...';
-                    position: absolute;
-                    bottom: 0;
-                    right: -1px;
-                    font-size: 12px;
-                    color: rgba(153,153,153,1);
-                    background-color: $color;
-                  }
-
-                  div {
-                    a {
-                      width: 16px;
-                      height: 16px;
-                      border: 1px solid rgba(196,196,196,1);
-                      color: rgba(102,102,102,1);
-                      font-size: 16px;
-                      float: left;
-                      text-align: center;
-                      line-height: 16px;
-                      font-weight: bold;
-                    }
-                    input {
-                      width: 38px;
-                      height: 16px;
-                      line-height: 16px;
-                      font-size: 14px;
-                      border: none;
-                      border-top: 1px solid rgba(196,196,196,1);
-                      border-bottom: 1px solid rgba(196,196,196,1);
-                      text-align: center;
-                      float: left;
-                      color: rgba(51,51,51,1);
-                    }
-                    span {
-                      font-size: 16px;
-                      color: rgba(51,51,51,1);
-                      height: 20px;
-                      line-height: 20px;
-                      float: right;
-                      max-width: 80px;
-                      overflow: hidden;
-                    }
-                  }
-                }
-              }
-            }
-            //购物车侧边滚动条样式
-            ul::-webkit-scrollbar {
-              width: 6px;
-              background-color: $color;
-            }
-            ul::-webkit-scrollbar-track {
-              background-color: $color;
-              -webkit-box-shadow: 1px 0 0 0 rgba(242,242,242,0.5) inset;
-              border-radius: 3px;
-            }
-            ul::-webkit-scrollbar-thumb {
-              background: rgba(204,204,204,1);
-              border-radius: 3px;
-            }
-
-            .hide_footer {
-              height: 36px;
-              padding-left: 10px;
-              padding-right: 10px;
-              background-color: rgba(242,242,242,1);
-              font-size: 14px;
-              line-height: 36px;
-              color: rgba(102,102,102,0.8);
-              span {
-                color: #000000;
-                font-size: 14px;
-                margin-left: 8px;
-                opacity: .8;
-                filter: Alpha(opacity=80);
-                strong {
-                  font-size: 20px;
-                }
-              }
-              a {
-                margin-top: 7px;
-                float: right;
-                width: 60px;
-                height: 22px;
-                border: none;
-                background-color: rgba(230,45,45,1);
-                color: $color;
-                line-height: 22px;
-                text-align: center;
-              }
-            }
-          }
-        }
-      .search_cart:hover {
-        box-shadow: 0 2px 8px 0 rgba(0,0,0,0.1);
-        height: 40px;
-        width: 150px;
-        background-color: rgba(255,255,255,1);
-        border: 0;
-        .cart_bg2 {
-          transform: rotate(180deg);
-          -webkit-transform: rotate(180deg);
-        }
-        .cart_hide {
-          max-height: 276px;
-        }
-      }
-
         .search_img {
           width: 70px;
           height: 70px;

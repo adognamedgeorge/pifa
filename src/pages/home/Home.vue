@@ -2,8 +2,8 @@
   <div>
     <Header></Header>
     <Searcher></Searcher>
+    <Fixed></Fixed>
     <home-poster :list="posterList"
-                 :cat="category"
                  :user="user"
                  :acc="account"
                  :cou="couponNum"
@@ -22,7 +22,6 @@ import HomePoster from './components/Poster'
 import HomeBargain from './components/Bargain'
 import HomeCategory from './components/Category'
 import axios from 'axios'
-
 export default {
   name: 'Home',
   components: {
@@ -37,8 +36,7 @@ export default {
       couponNum: '',
       posterList: [],
       noticeList: [],
-      category: [],
-      recommend: {},
+      recommend: [],
       categories: []
     }
   },
@@ -56,8 +54,7 @@ export default {
         this.couponNum = data.couponNum
         this.posterList = data.posterList
         this.noticeList = data.noticeList
-        this.category = data.category
-        this.recommend = data.recommend
+        this.recommend = data.recommend['products']
         this.categories = data.categories
       }
     }

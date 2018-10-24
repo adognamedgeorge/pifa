@@ -12,11 +12,16 @@ import Footer from './pages/public/public_js/footer.js'
 import Searcher from './pages/public/public_js/searcher.js'
 import Ads from './pages/public/public_js/ads.js'
 import Scroll from './pages/public/public_js/scroll.js'
+import Cart from './pages/public/public_js/cart.js'
+import Fixed from './pages/public/public_js/fixedhead.js'
+
 Vue.use(Header)
 Vue.use(Footer)
 Vue.use(Searcher)
 Vue.use(Ads)
 Vue.use(Scroll)
+Vue.use(Cart)
+Vue.use(Fixed)
 Vue.use(VueAwesomeSwiper)
 
 Vue.config.productionTip = false

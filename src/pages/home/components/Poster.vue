@@ -2,19 +2,22 @@
   <div id="slider">
     <div class="wrapper">
       <div class="mulu">
-        <!--<h2>全部商品分类</h2>-->
         <div class="list">
           <ul>
-            <li v-for="item of cat" :key="item.id">
+            <li v-for="item of sortsList" :key="item.id">
               <div class="list_a">
                 <a href="">{{item.name}}</a>
                 <a href="" v-for="item2 of item['items']" :key="item2.id">{{item2.name}}</a>
               </div>
 
               <div class="mulu_hide">
-                <p>{{item.name}}</p>
-                <div>
-                  <a href="" v-for="item2 of item.items" :key="item2.id">{{item2.name}}</a>
+                <div class="hide_first">
+                  <div class="hide_second" v-for="item2 of item['items']" :key="item2.id">
+                    <h5>
+                      <a href="">{{item2.name}}</a>
+                    </h5>
+                    <a href="" v-for="item3 of item2['item']" :key="item3.id">{{item3.name}}</a>
+                  </div>
                 </div>
               </div>
             </li>
@@ -47,9 +50,9 @@
         <button><a>签到</a></button>
       </div>
       <ul class="ads_ul">
-        <li><h3>{{this.acc['balance']}}</h3><a href="">余额</a></li>
-        <li><h3>{{this.cou}}</h3><a href="">优惠券</a></li>
-        <li><h3>{{this.acc['integral']}}</h3><a href="">积分</a></li>
+        <li><a href=""><h3>{{this.acc['balance']}}</h3><p>余额</p></a></li>
+        <li><a href=""><h3>{{this.cou}}</h3><p>优惠券</p></a></li>
+        <li><a href=""><h3>{{this.acc['integral']}}</h3><p>积分</p></a></li>
       </ul>
       <div class="ad2">
         <ul>
@@ -75,6 +78,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: 'HomePoster',
   props: {
@@ -97,7 +101,8 @@ export default {
         paginationBulletRender: function (swiper, index, className) {
           return '<span class="' + className + '">' + (index + 1) + '</span>'
         }
-      }
+      },
+      sortsList: []
     }
   },
   methods: {
@@ -109,6 +114,17 @@ export default {
     },
     nowTimes () {
       this.timeFormate(new Date())
+    },
+    getHomeInfo () {
+      axios.get('/api/home.json')
+        .then(this.getHomeInfoSucc)
+    },
+    getHomeInfoSucc (res) {
+      res = res.data
+      if (res.ret && res.data) {
+        const data = res.data
+        this.sortsList = data.sortsList
+      }
     }
   },
   computed: {
@@ -118,6 +134,9 @@ export default {
   },
   created () {
     this.nowTimes()
+  },
+  mounted () {
+    this.getHomeInfo()
   }
 }
 </script>
@@ -162,9 +181,8 @@ export default {
         background-color: $bgColor2;
         height: 330px;
         ul:hover {
-          height: unset;
+          height: auto;
           background-color: $bgColor2;
-          box-shadow: 0 2px 4px rgba(0,0,0,.1);
         }
         ul {
           height: 324px;
@@ -185,7 +203,7 @@ export default {
               }
               a:first-child {
                 display: inline-block;
-                width: 56px;
+                /*width: 56px;*/
                 color: rgba(51, 51, 51, 1);
               }
               a:hover {
@@ -199,36 +217,35 @@ export default {
               }
             }
             .mulu_hide {
-              background-color: $color;
-              width: 240px;
-              height: 302px;
+              background-color: white;
+              width: 668px;
+              min-height: 312px;
               position: absolute;
               left: 230px;
-              bottom: 0;
-              padding-left: 10px;
-              padding-top: 28px;
+              top: 6px;
+              padding: 30px 40px 40px 6px;
               display: none;
-              border: 1px solid rgba(230, 45, 45, 1);
-              p {
-                height: 18px;
-                line-height: 18px;
+              border: 1px solid rgba(230,45,45,1);
+              a {
+                display: inline-block;
                 font-size: 14px;
-                color: rgba(51, 51, 51, 1);
-                margin-bottom: 16px;
+                color: rgba(153,153,153,1);
+                margin-left: 20px;
+                margin-bottom: 10px;
               }
               div {
-                max-width: 240px;
+                max-width: 668px;
                 overflow: hidden;
-                a {
-                  display: inline-block;
-                  float: left;
-                  font-size: 14px;
-                  color: rgba(153, 153, 153, 1);
-                  margin-right: 20px;
-                  margin-bottom: 10px;
-                }
-                a:hover {
-                  color: #e62d2d;
+                .hide_second {
+                  padding-bottom: 5px;
+                  h5 {
+                    padding: 0;
+                    margin: 0;
+                    a {color: rgba(51,51,51,.9);}
+                  }
+                  a:hover {
+                    color: red;
+                  }
                 }
               }
             }
@@ -240,7 +257,7 @@ export default {
             }
             div + div {
               display: block;
-              z-index: 5;
+              z-index: 999;
             }
           }
         }
@@ -323,10 +340,16 @@ export default {
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
+            margin-bottom: 5px;
           }
-          a {
+          p {
             font-size: 12px;
             color: rgba(153, 153, 153, 1);
+          }
+          a:hover {
+            h3, p {
+              color: #ff0000;
+            }
           }
         }
       }

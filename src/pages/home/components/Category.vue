@@ -1,6 +1,6 @@
 <template>
   <div class="categories" ref="box"> <!--ref注册引用信息-->
-    <div class="wrapper" >
+    <div class="wrapper" ref="wrapper">
         <div :id="'c_' + index1" class="category" v-for="(item,index1) of categories" :key="item.id">
           <div class="c_left">
             <div class="left_t">
@@ -49,7 +49,7 @@
 
 <script>
 import axios from 'axios'
-// 定义个公共的公共实例文件link.js，作为中间仓库来传值(非父子组件之间)
+// 定义个公共实例文件link.js，作为中间仓库来传值(非父子组件之间)
 import Link from '../../public/public_js/link.js'
 export default {
   name: 'HomeCategoryI',
@@ -93,7 +93,7 @@ export default {
     },
     handleScroll () {
       const scroll = this.$refs.box.offsetTop
-      Link.$emit('val', scroll)
+      Link.$emit('val2', scroll)
     }
   },
   mounted () {

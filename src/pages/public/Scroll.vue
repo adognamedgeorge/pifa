@@ -32,16 +32,19 @@ export default {
       const scrollBox = this.$refs.box.offsetTop
       const liH = this.$refs.liHeight.offsetHeight
       const liItem = this.$refs.liItem
-
+      // 侧栏列表切换
       if (scrollTop > 400) {
         const scrollTopDis = scrollTop - this.catTop + scrollBox + liH
-        console.log(scrollTop, this.catTop, scrollBox, liH)
         this.goTopShow = true
         scrollTop > 730 ? this.isTrue = false : this.isTrue = true
-        scrollTopDis >= 0 && scrollTopDis < 610 ? this.currentIndex = 0 : this.currentIndex = -1
-        // scrollTopDis > 610 * 1 && scrollTopDis < 610 * 2 ? this.currentIndex = 1 : this.currentIndex = 0
-        // scrollTopDis > 610 * 2 && scrollTopDis < 610 * 3 ? this.currentIndex = 2 : this.currentIndex = 1
-        // scrollTopDis >= 0 && scrollTopDis < 610 ? this.currentIndex = 0 : this.currentIndex = -1
+        for (let i = 0; i < liItem.length; i++) {
+          liItem[i].index = i
+          if (scrollTopDis >= 610 * liItem[i].index && scrollTopDis < 610 * (liItem[i].index + 1)) {
+            this.currentIndex = liItem[i].index
+          } else if (scrollTopDis < 0) {
+            this.currentIndex = null
+          }
+        }
       } else if (scrollTop < 400) {
         this.goTopShow = false
         this.isTrue = false
@@ -63,7 +66,7 @@ export default {
   mounted () {
     window.addEventListener('scroll', this.handleScroll)
     const vm = this
-    Link.$on('val', (dat) => {
+    Link.$on('val2', (dat) => {
       vm.catTop = dat
     })
   },

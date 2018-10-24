@@ -13,9 +13,9 @@
       </div>
       <div class="sp_slid">
             <ul>
-              <swiper :options="swiperOption">
-                  <swiper-slide v-for="item of list['products']" :key="item.id">
-                      <li class="item_box">
+              <swiper :options="swiperOption" v-if="showSwiper">
+                  <swiper-slide v-for="item of list" :key="item.id">
+                      <li  class="item_box">
                         <a  href="javascript:;" class="item_bg" ></a>
                         <a  href="javascript:;" class="item_bg cover" v-if="item.isCollect"></a>
                         <div class="item_img">
@@ -43,11 +43,11 @@
         <a href=""><div class="btn fr iconfont"><i>&#xe600;</i></div></a>
       </div>
       <div class="sp_right">
-        <div class="r_img">
-          <a href=""><img src="http://i8.yunmayi.com/upload/2017/03/28/c7add6ce7033b01bfc9b399b4f34efd2.jpgXXXXX!!!!!_300x300.jpg"/></a>
-        </div>
-        <div class="r_title">
-        </div>
+          <div class="r_img">
+                <a href=""><img src="http://i8.yunmayi.com/upload/2017/03/28/c7add6ce7033b01bfc9b399b4f34efd2.jpgXXXXX!!!!!_300x300.jpg"/></a>
+          </div>
+          <div class="r_title">
+          </div>
       </div>
       </div>
   </div>
@@ -57,18 +57,24 @@
 export default {
   name: 'HomeBargain',
   props: {
-    list: Object
+    list: Array
   },
   data () {
     return {
       swiperOption: {
         pagination: '.swiper-pagination',
-        autoplay: 8000,
-        loop: true,
+        autoplay: 500,
         speed: 2000,
+        loop: true,
         mousewheelControl: true,
-        width: 240
+        spaceBetween: -480,
+        centerdSlides: true
       }
+    }
+  },
+  computed: {
+    showSwiper () {
+      return this.list.length
     }
   }
   // computed: {
@@ -112,7 +118,7 @@ export default {
     flex: 1;
     -ms-flex: 1;
     position: relative;
-    width: 720px;
+    /*width: 720px;*/
     overflow: hidden;
     float: left;
     ul {
