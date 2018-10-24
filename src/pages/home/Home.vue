@@ -9,7 +9,7 @@
                  :cou="couponNum"
                  :notice="noticeList">
     </home-poster>
-    <home-bargain :list="recommend"></home-bargain>
+    <home-bargain :list="specialPrice"></home-bargain>
     <home-category></home-category>
     <Ads></Ads>
     <Footer></Footer>
@@ -36,7 +36,7 @@ export default {
       couponNum: '',
       posterList: [],
       noticeList: [],
-      recommend: [],
+      specialPrice: [],
       categories: []
     }
   },
@@ -54,7 +54,7 @@ export default {
         this.couponNum = data.couponNum
         this.posterList = data.posterList
         this.noticeList = data.noticeList
-        this.recommend = data.recommend['products']
+        this.specialPrice = data.specialPrice['products']
         this.categories = data.categories
       }
     }

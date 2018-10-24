@@ -2,24 +2,24 @@
   <div id="special" class="category">
     <div class="wrapper">
       <div class="focus_within">
-        <button class="button_first">限时特价</button>
-        <button class="button_second">新品推荐</button>
+        <button class="button_first" v-show="showSpecial">{{spc_title}}</button>
+        <button class="button_second" v-show="showRecd">{{rec_title}}</button>
       </div>
     </div>
 
     <div class="wrapper">
       <div class="sp_left">
-        <img src="../../../assets/imgs/home_banner_discount@2x.png"/>
+        <img src="../../../assets/imgs/home_banner_discount@2x.png" v-show="showSpecial"/>
       </div>
       <div class="sp_slid">
             <ul>
-              <swiper :options="swiperOption" v-if="showSwiper">
+              <swiper :options="swiperOption" v-show="showSpecial">
                   <swiper-slide v-for="item of list" :key="item.id">
-                      <li  class="item_box">
+                      <li class="item_box">
                         <a  href="javascript:;" class="item_bg" ></a>
-                        <a  href="javascript:;" class="item_bg cover" v-if="item.isCollect"></a>
+                        <a  href="javascript:;" class="item_bg cover" v-show="item.isCollect"></a>
                         <div class="item_img">
-                          <a href="" target="_blank"><img src="http://i8.yunmayi.com/upload/2015/04/30/7b948795d28a540658f4fc6f6da26950.jpgXXXXX!!!!!_300x300.jpg"/></a>
+                          <a href="" target="_blank"><img :src="item.img"/></a>
                         </div>
                         <div class="item_title">
                           <a href="" target="_blank">{{item.title}}</a>
@@ -37,44 +37,94 @@
                     </li>
                   </swiper-slide>
               </swiper>
-            </ul>
 
-        <a href=""><div class="btn fl iconfont"><i>&#xe600;</i></div></a>
-        <a href=""><div class="btn fr iconfont"><i>&#xe600;</i></div></a>
+              <swiper :options="swiperOption" v-show="!showRecd">
+                <swiper-slide v-for="item of recList" :key="item.id">
+                  <li class="item_box">
+                    <a  href="javascript:;" class="item_bg" ></a>
+                    <a  href="javascript:;" class="item_bg cover" v-show="item.isCollect"></a>
+                    <div class="item_img">
+                      <a href="" target="_blank"><img :src="item.img"/></a>
+                    </div>
+                    <div class="item_title">
+                      <a href="" target="_blank">{{item.title}}</a>
+                    </div>
+                    <div class="item_price">
+                      <i>￥</i><strong>{{item.price}}</strong>/{{item.unit}}
+                      <span>规格:{{item.spec}}</span>
+                    </div>
+                    <div class="item_action">
+                      <a href="javascript:;">-</a>
+                      <input type="text" :value="item.minSoldNum" data-min="1"/>
+                      <a href="javascript:;">+</a>
+                      <a>进货</a>
+                    </div>
+                  </li>
+                </swiper-slide>
+              </swiper>
+            </ul>
+        <div class="btn fl iconfont swiper-button-prev" slot="prevButton"><i>&#xe600;</i></div>
+        <div class="btn fr iconfont swiper-button-next" slot="nextButton"><i>&#xe600;</i></div>
       </div>
-      <div class="sp_right">
-          <div class="r_img">
-                <a href=""><img src="http://i8.yunmayi.com/upload/2017/03/28/c7add6ce7033b01bfc9b399b4f34efd2.jpgXXXXX!!!!!_300x300.jpg"/></a>
-          </div>
-          <div class="r_title">
-          </div>
-      </div>
+      <home-presale></home-presale>
       </div>
   </div>
 </template>
 
 <script>
+import HomePresale from './Presale'
+import axios from 'axios'
 export default {
   name: 'HomeBargain',
+  components: {
+    HomePresale
+  },
   props: {
     list: Array
   },
   data () {
     return {
       swiperOption: {
-        pagination: '.swiper-pagination',
-        autoplay: 500,
-        speed: 2000,
+        autoplay: 1000,
+        speed: 1000,
         loop: true,
         mousewheelControl: true,
-        spaceBetween: -480,
-        centerdSlides: true
+        // width: 240,
+        slidesPerView: 3,
+        prevButton: '.swiper-button-prev',
+        nextButton: '.swiper-button-next'
+        // centerdSlides: true
+        // offsetSlidesAfter: 2
+      },
+      spc_title: '',
+      rec_title: '',
+      recList: []
+    }
+  },
+  methods: {
+    getHomeInfo () {
+      axios.get('/api/home.json')
+        .then(this.getHomeInfoSucc)
+    },
+    getHomeInfoSucc (res) {
+      res = res.data
+      if (res.ret && res.data) {
+        const data = res.data
+        this.spc_title = data.specialPrice['name']
+        this.recList = data.recommend['products']
+        this.rec_title = data.recommend['name']
       }
     }
   },
+  mounted () {
+    this.getHomeInfo()
+  },
   computed: {
-    showSwiper () {
+    showSpecial () {
       return this.list.length
+    },
+    showRecd () {
+      return this.recList.length
     }
   }
   // computed: {
@@ -95,13 +145,17 @@ export default {
 
 <style lang="scss" scoped>
   @import '~@/assets/styles/varible.scss';
+  .sp_slid /deep/ .swiper-button-prev, .swiper-button-next { background-image: none;}
   #special {
     /*height: 300px;*/
     padding-bottom: 30px;
     background-color: $bgColor3;
     @extend %wrapper;
     .wrapper {
+      display: -webkit-flex;
       display: flex;
+      /*display: -webkit-box;*/
+      display: -moz-box;
       display: -ms-flexbox;
     }
   .sp_left {
@@ -115,10 +169,12 @@ export default {
 
   .sp_slid {
     height: 300px;
-    flex: 1;
+    -webkit-flex: 1;
     -ms-flex: 1;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    flex: 1;
     position: relative;
-    /*width: 720px;*/
     overflow: hidden;
     float: left;
     ul {
@@ -130,7 +186,7 @@ export default {
         padding-right: 5px;
       }
      }
-      .btn {
+      .btn{
         display: none;
         position: absolute;
         top: 38.33%;
