@@ -1,0 +1,420 @@
+{
+  "ret":true,
+  "data":{
+
+    "account": {
+      "balance": 456222,
+      "integral": 123
+    },
+
+    "couponNum": "3",
+    "cartNum": 0,
+    "user": {
+      "id": "100673",
+      "name": "maijia"
+    },
+
+    "cartList": [
+      {
+        "id": "110974",
+        "img": "/upload/eba1c2ef98775bf4431d2ebd472eab51.jpg",
+        "title": "1111五常昌旺纯真100%稻花香稻花香稻花香",
+        "price": "105.50",
+        "num": 0
+      },{
+        "id": "110975",
+        "img": "/upload/eba1c2ef98775bf4431d2ebd472eab51.jpg",
+        "title": "2222五常昌旺纯真100%稻花香",
+        "price": "15.50",
+        "num": 0
+      }
+    ],
+
+    "noticeList": [
+      {
+        "text": "8月爆品预售来袭8月爆品预售来袭8月爆品预售来袭",
+        "id": 1001
+      },{
+        "text": "【通知】9月27日订单配送通知",
+        "id": 1002
+      },{
+        "text": "1法丽兹系列调价通知",
+        "id": 1003
+      },{
+        "text": "2法丽兹系列调价通知",
+        "id": 1004
+      }
+    ],
+
+    "sortsList": [
+      {
+        "name": "特色专区",
+        "id": 1051,
+        "items": [
+          {
+            "name": "进口食品",
+            "id": 1053 ,
+            "item": [
+              {"name": "进口零食", "id": 1001},
+              {"name": "进口饼干", "id": 1002},
+              {"name": "进口饮料", "id": 1003}
+            ]
+          }, {
+            "name":  "营养健康",
+            "id": 1054 ,
+            "item": [
+              {"name": "营养食品", "id": 1001},
+              {"name": "伟哥", "id": 1002}
+            ]
+          }
+        ]
+      },{
+        "name": "酒水饮料",
+        "id": 1052,
+        "items": [
+          {
+            "name": "饮料",
+            "id": 1053,
+            "item": [
+              {"name": "碳酸饮料", "id": 1001},
+              {"name": "果汁饮料", "id": 1002}
+            ]
+          }, {
+            "name": "啤酒",
+            "id": 1054,
+            "item": [
+              {"name": "国产听装啤酒", "id": 1001},
+              {"name": "国产瓶装啤酒", "id": 1002}
+            ]
+          }, {
+            "name": "果酒",
+            "id": 1055,
+            "item": [
+              {"name": "干红", "id": 1001},
+              {"name": "桃红", "id": 1002}
+            ]
+          },{
+            "name": "白酒",
+            "id": 1056,
+            "item": [
+              {"name": "精装", "id": 1001},
+              {"name": "简装", "id": 1002}
+            ]
+          }
+        ]
+      },{
+        "name": "特色专2",
+        "id": 1053,
+        "items": [
+          {
+            "name": "进口食品",
+            "id": 1053 ,
+            "item": [
+              {"name": "进口零食", "id": 1001},
+              {"name": "进口饼干", "id": 1002},
+              {"name": "进口饮料", "id": 1003}
+            ]
+          }
+        ]
+      },{
+        "name": "特色专3",
+        "id": 1054,
+        "items": [
+          {
+            "name": "进口食品",
+            "id": 1053 ,
+            "item": [
+              {"name": "进口零食", "id": 1001},
+              {"name": "进口饼干", "id": 1002},
+              {"name": "进口饮料", "id": 1003}
+            ]
+          }
+        ]
+      },{
+        "name": "特色专4",
+        "id": 1055,
+        "items": [
+          {
+            "name": "进口食品",
+            "id": 1055 ,
+            "item": [
+              {"name": "进口零食", "id": 1001},
+              {"name": "进口饼干", "id": 1002},
+              {"name": "进口饮料", "id": 1003}
+            ]
+          }
+        ]
+      },{
+        "name": "特色专5",
+        "id": 1056,
+        "items": [
+          {
+            "name": "进口食品",
+            "id": 1056 ,
+            "item": [
+              {"name": "进口零食", "id": 1001},
+              {"name": "进口饼干", "id": 1002},
+              {"name": "进口饮料", "id": 1003}
+            ]
+          }
+        ]
+      },{
+        "name": "特色专6",
+        "id": 1057,
+        "items": [
+          {
+            "name": "进口食品",
+            "id": 1057 ,
+            "item": [
+              {"name": "进口零食", "id": 1001},
+              {"name": "进口饼干", "id": 1002},
+              {"name": "进口饮料", "id": 1003}
+            ]
+          }
+        ]
+      }
+    ],
+
+    "posterList": [{
+        "img": "http://p1.music.126.net/CEznnRcRcLpen07YSbMD3g==/109951163517815037.jpg",
+        "link": "http://pifa.yunmayi.com/notice/detail?id=168",
+        "sort": 0
+    },{
+      "img": "http://p1.music.126.net/3ovn332Vy0MsvA3Q8kWvOw==/109951163515911854.jpg",
+      "link": "http://pifa.yunmayi.com/notice/detail?id=169",
+      "sort": 1
+    }],
+
+    "specialPrice": {
+      "name": "限时特价",
+      "products": [
+        {
+          "id": "110974",
+          "stock": "100",
+          "img": "http://pifa.yunmayi.com/upload/2015/10/21/165dfcb4125eec29a429f10ce8e45e5c.jpg",
+          "title": "1五常昌旺纯真100%稻花香",
+          "spec": "10kg/袋",
+          "unit": "袋",
+          "price": "105.50",
+          "minSoldNum": "3",
+          "isCollect": 0
+        },{
+          "id": "110975",
+          "stock": "900",
+          "img": "/upload/eba1c2ef98775bf4431d2ebd472eab51.jpg",
+          "title": "2五常昌旺纯真100%稻花香",
+          "spec": "310kg/袋",
+          "unit": "箱",
+          "price": "15.50",
+          "minSoldNum": "4",
+          "isCollect": 1
+        },{
+          "id": "110976",
+          "stock": "110",
+          "img": "http://pifa.yunmayi.com/upload/2015/10/21/165dfcb4125eec29a429f10ce8e45e5c.jpg",
+          "title": "3五常昌旺纯真100%稻花香",
+          "spec": "90kg/袋",
+          "unit": "袋",
+          "price": "905.50",
+          "minSoldNum": "5",
+          "isCollect": 0
+        },{
+          "id": "110977",
+          "stock": "110",
+          "img": "/upload/eba1c2ef98775bf4431d2ebd472eab51.jpg",
+          "title": "4五常昌旺纯真100%稻花香",
+          "spec": "90kg/袋",
+          "unit": "袋",
+          "price": "905.50",
+          "minSoldNum": "6",
+          "isCollect": 1
+        },{
+          "id": "110978",
+          "stock": "110",
+          "img": "http://pifa.yunmayi.com/upload/2015/10/21/165dfcb4125eec29a429f10ce8e45e5c.jpg",
+          "title": "55555五常昌旺纯真100%稻花香",
+          "spec": "90kg/袋",
+          "unit": "袋",
+          "price": "905.50",
+          "minSoldNum": "7",
+          "isCollect": 1
+        },{
+          "id": "110979",
+          "stock": "110",
+          "img": "/upload/eba1c2ef98775bf4431d2ebd472eab51.jpg",
+          "title": "6665555五常昌旺纯真100%稻花香",
+          "spec": "90kg/袋",
+          "unit": "袋",
+          "price": "905.50",
+          "minSoldNum": "13",
+          "isCollect": 1
+        }
+      ]
+    },
+
+    "recommend": {
+      "name": "新品推荐",
+      "products": [
+        {
+          "id": "110974",
+          "stock": "100",
+          "img": "http://pifa.yunmayi.com/upload/2015/10/21/165dfcb4125eec29a429f10ce8e45e5c.jpg",
+          "title": "1111111111111",
+          "spec": "10kg/袋",
+          "unit": "袋",
+          "price": "105.50",
+          "minSoldNum": "3",
+          "isCollect": 0
+        },{
+          "id": "110975",
+          "stock": "900",
+          "img": "http://pifa.yunmayi.com/upload/2015/10/21/165dfcb4125eec29a429f10ce8e45e5c.jpg",
+          "title": "2222222222222222222",
+          "spec": "310kg/袋",
+          "unit": "箱",
+          "price": "15.50",
+          "minSoldNum": "4",
+          "isCollect": 1
+        },{
+          "id": "110976",
+          "stock": "110",
+          "img": "/upload/eba1c2ef98775bf4431d2ebd472eab51.jpg",
+          "title": "333333333333333",
+          "spec": "90kg/袋",
+          "unit": "袋",
+          "price": "905.50",
+          "minSoldNum": "5",
+          "isCollect": 0
+        },{
+          "id": "110977",
+          "stock": "110",
+          "img": "http://pifa.yunmayi.com/upload/2015/10/21/165dfcb4125eec29a429f10ce8e45e5c.jpg",
+          "title": "44444444444444444444",
+          "spec": "90kg/袋",
+          "unit": "袋",
+          "price": "905.50",
+          "minSoldNum": "6",
+          "isCollect": 1
+        }
+      ]
+    },
+
+    "categories": [
+      {
+        "id": 1001,
+        "sideTitle": "酒饮料",
+        "sideSorts": [
+          {"name": "啤酒", "id": 1001},
+          {"name": "白酒", "id": 1002}
+        ],
+        "sideImg": "/static/img/home_banner_L1@2x.png",
+        "categoryList": [
+          {
+            "id": "1001",
+            "stock": "100",
+            "img": "http://i8.yunmayi.com/upload/2015/04/30/7b948795d28a540658f4fc6f6da26950.jpgXXXXX!!!!!_300x300.jpg",
+            "title": "1111111111五常昌旺纯真100%稻花香",
+            "spec": "10kg/袋",
+            "unit": "袋",
+            "price": "105.50",
+            "minSoldNum": "3",
+            "isCollect": 0
+          },{
+            "id": "1002",
+            "stock": "900",
+            "img": "http://pifa.yunmayi.com/upload/2015/10/21/165dfcb4125eec29a429f10ce8e45e5c.jpg",
+            "title": "2五常昌旺纯真100%稻花香",
+            "spec": "310kg/袋",
+            "unit": "箱",
+            "price": "15.50",
+            "minSoldNum": "4",
+            "isCollect": 1
+          },{
+            "id": "1003",
+            "stock": "110",
+            "img": "http://i8.yunmayi.com/upload/2015/04/30/7b948795d28a540658f4fc6f6da26950.jpgXXXXX!!!!!_200x200.jpg",
+            "title": "3五常昌旺纯真100%稻花香",
+            "spec": "90kg/袋",
+            "unit": "袋",
+            "price": "905.50",
+            "minSoldNum": "5",
+            "isCollect": 0
+          },{
+            "id": "1004",
+            "stock": "110",
+            "img": "/upload/eba1c2ef98775bf4431d2ebd472eab51.jpg",
+            "title": "55555五常昌旺纯真100%稻花香",
+            "spec": "90kg/袋",
+            "unit": "袋",
+            "price": "905.50",
+            "minSoldNum": "6",
+            "isCollect": 1
+          },{
+            "id": "1005",
+            "stock": "110",
+            "img": "/upload/eba1c2ef98775bf4431d2ebd472eab51.jpg",
+            "title": "44455五常昌旺纯真100%稻花香",
+            "spec": "330ml*24瓶",
+            "unit": "袋",
+            "price": "905.50",
+            "minSoldNum": "7",
+            "isCollect": 1
+          }
+        ]
+      },{
+        "id": 1002,
+        "sideTitle": "儿童玩具",
+        "sideSorts": [
+          {"name": "气球", "id": 1003},
+          {"name": "皮球", "id": 1004}
+        ],
+        "sideImg": "/static/img/home_banner_L1@2x.png",
+        "categoryList": [
+          {
+            "id": "1001",
+            "stock": "100",
+            "img": "http://pifa.yunmayi.com/upload/2015/10/21/165dfcb4125eec29a429f10ce8e45e5c.jpg",
+            "title": "444五常昌旺纯真100%稻花香",
+            "spec": "10kg/袋",
+            "unit": "袋",
+            "price": "15.50",
+            "minSoldNum": "3",
+            "isCollect": 1
+          }
+        ]
+      },{
+        "id": 1003,
+        "sideTitle": "日用洗护",
+        "sideSorts": [
+          {"name": "牙膏", "id": 1005},
+          {"name": "牙刷", "id": 1006}
+        ],
+        "sideImg": "/static/img/home_banner_L1@2x.png",
+        "categoryList": [
+          {
+            "id": "1001",
+            "stock": "100",
+            "img": "http://i8.yunmayi.com/upload/2015/04/30/7b948795d28a540658f4fc6f6da26950.jpgXXXXX!!!!!_300x300.jpg",
+            "title": "222五常昌旺纯真100%稻花香",
+            "spec": "10kg/袋",
+            "unit": "袋",
+            "price": "15.50",
+            "minSoldNum": "3",
+            "isCollect": 1
+          },{
+            "id": "1002",
+            "stock": "100",
+            "img": "http://pifa.yunmayi.com/upload/2015/10/21/165dfcb4125eec29a429f10ce8e45e5c.jpg",
+            "title": "333五常昌旺纯真100%稻花香",
+            "spec": "10kg/袋",
+            "unit": "袋",
+            "price": "15.50",
+            "minSoldNum": "3",
+            "isCollect": 1
+          }
+        ]
+      }
+    ]
+
+  }
+}

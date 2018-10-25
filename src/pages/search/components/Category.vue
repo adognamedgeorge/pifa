@@ -1,6 +1,6 @@
 <template>
   <div id="ca-main" class="wrapper">
-    <div class="sm-recorder">
+    <div class="sm_recorder">
       <a href="">默认</a>
       <a href="">销量<i class="re-bg1"> </i></a>
       <a href="">价格<i class="re-bg2"> </i></a>
@@ -9,40 +9,40 @@
       </div>
     </div>
 
-    <div class="search-item-box">
+    <div class="search_item_box">
       <ul>
-        <li class="item-box">
-          <a class="item-bg"> </a>
-          <div class="item-img">
+        <li class="item_box">
+          <a class="item_bg"> </a>
+          <div class="item_img">
             <a href="" target="_blank"><img src="http://i8.yunmayi.com/upload/2015/04/30/7b948795d28a540658f4fc6f6da26950.jpgXXXXX!!!!!_300x300.jpg"/></a>
           </div>
-          <div class="item-title">
+          <div class="item_title">
             <a href="" target="_blank">百事可乐碳酸饮料汽水，夏天必备夏</a>
           </div>
-          <div class="item-price">
+          <div class="item_price">
             <i>￥</i><strong>47.9</strong>/箱
             <span>规格:330ml*24瓶</span>
           </div>
-          <div class="item-action">
+          <div class="item_action">
             <a href="javascript:;">-</a>
             <input type="text" value="1" data-min="1"/>
             <a href="javascript:;">+</a>
             <a href="">进货</a>
           </div>
         </li>
-        <li class="item-box">
-          <a class="item-bg active"> </a>
-          <div class="item-img">
+        <li class="item_box">
+          <a class="item_bg active"> </a>
+          <div class="item_img">
             <a href="" target="_blank"><img src="http://i8.yunmayi.com/upload/2015/04/30/7b948795d28a540658f4fc6f6da26950.jpgXXXXX!!!!!_300x300.jpg"/></a>
           </div>
-          <div class="item-title">
+          <div class="item_title">
             <a href="" target="_blank">百事可乐碳酸饮料汽水，夏天必备夏</a>
           </div>
-          <div class="item-price">
+          <div class="item_price">
             <i>￥</i><strong>47.9</strong>/箱
             <span>规格:330ml*24瓶</span>
           </div>
-          <div class="item-action">
+          <div class="item_action">
             <a href="javascript:;">-</a>
             <input type="text" value="1" data-min="1"/>
             <a href="javascript:;">+</a>
@@ -52,13 +52,13 @@
       </ul>
     </div>
 
-    <div class="search-pages">
+    <div class="search_pages">
       <ul>
         <li v-if="cur>1"><a @click="cur--, pageClick()">上一页</a></li>
         <li v-if="cur === 1"><a class="ban_click">上一页</a></li>
         <li v-for="index in list" :key="index.id" :class="{'active': cur === index}"><a @click="btnClick(index)">{{index}}</a></li>
         <!--<li><a href="">1</a></li>-->
-        <li class="pages-dots">…</li>
+        <li class="pages_dots">…</li>
         <li><a >{{all-1}}</a></li>
         <li><a >{{all}}</a></li>
         <li v-if="cur !== all"><a @click="cur++, pageClick()">下一页</a></li>
@@ -130,7 +130,7 @@ export default {
     padding-top:30px;
     padding-bottom:30px;
     //@extend %wrapper;
-    .sm-recorder {
+    .sm_recorder {
       height:26px;
       background-color:rgba(245,245,245,1);
       margin-bottom:20px;
@@ -172,22 +172,22 @@ export default {
       }
     }
 
-    .search-item-box {
+    .search_item_box {
       ul {
         display:inline-block;
         margin-bottom:10px;
         @extend %item;
-        .item-box {
+        .item_box {
           margin-bottom:10px;
           margin-left:10px;
         }
-        .item-box:nth-child(5n+1) {
+        .item_box:nth-child(5n+1) {
           margin-left:0;
         }
       }
     }
 
-    .search-pages {
+    .search_pages {
       height:40px;
       .active a{
         color: #fff;
@@ -223,7 +223,7 @@ export default {
         }
         li:first-child,li:last-child {width:80px;}
         li:nth-child(n+2) {border-left:none;}
-        .pages-dots {border:none;border-right:1px solid rgba(230,230,230,1);}
+        .pages_dots {border:none;border-right:1px solid rgba(230,230,230,1);}
       }
       span {
         margin-left:17px;
