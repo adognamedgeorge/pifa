@@ -20,9 +20,10 @@ export default {
     return {
       swiperOption: {
         autoplay: 5000,
+        autoplayDisableOnInteraction: false,
+        mousewheelControl: true,
         loop: true,
         speed: 3000,
-        mousewheelControl: true,
         effect: 'cube',
         pagination: '.swiper-pagination',
         paginationClickable: true,
@@ -52,7 +53,7 @@ export default {
   #sp_right /deep/ .swiper-pagination-bullet {
     width: 8px;
     height: 8px;
-    background-color: orange;
+    background-color: rgba(51,51,51,.7);
     opacity: .8;
     filter: Alpha(opacity=80);
     line-height: 10px;
@@ -60,7 +61,7 @@ export default {
     margin-right: 2px;
     margin-left: 2px;
   }
-  #sp_right /deep/ .swiper-pagination-bullet-active { background-color: red;}
+  #sp_right /deep/ .swiper-pagination-bullet-active { background-color: orange;}
   #sp_right {
     width: 240px;
     height: 300px;

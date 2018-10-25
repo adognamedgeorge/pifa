@@ -94,10 +94,11 @@ export default {
       swiperOption: {
         pagination: '.swiper-pagination',
         loop: true,
-        autoplay: 2000,
         paginationClickable: true,
         speed: 3000,
+        autoplayDisableOnInteraction: false,
         mousewheelControl: true,
+        autoplay: 1000,
         paginationBulletRender: function (swiper, index, className) {
           return '<span class="' + className + '">' + (index + 1) + '</span>'
         }

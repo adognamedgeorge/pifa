@@ -2,22 +2,23 @@
   <div id="special" class="category">
     <div class="wrapper">
       <div class="focus_within">
-        <button class="button_first" v-show="showSpecial">{{spc_title}}</button>
-        <button class="button_second" v-show="showRecd">{{rec_title}}</button>
+        <button class="button_first" v-show="showSpecial" :class="{selected: isTrue}" @click="btnSpeClick">{{spc_title}}</button>
+        <button class="button_second" v-show="showRecd" :class="{selected: !isTrue}" @click="btnRecClick">{{rec_title}}</button>
       </div>
     </div>
 
     <div class="wrapper">
       <div class="sp_left">
-        <img src="../../../assets/imgs/home_banner_discount@2x.png" v-show="showSpecial"/>
+        <img src="../../../assets/imgs/home_banner_discount@2x.png" v-show="showSpecial && isTrue"/>
+        <img src="@/assets/imgs/home_banner_new@2x.png" v-show="showRecd && !isTrue"/>
       </div>
       <div class="sp_slid">
             <ul>
-              <swiper :options="swiperOption" v-show="showSpecial">
+              <swiper :options="swiperOption" v-if="showSpecial && isTrue">
                   <swiper-slide v-for="item of list" :key="item.id">
                       <li class="item_box">
                         <a  href="javascript:;" class="item_bg" ></a>
-                        <a  href="javascript:;" class="item_bg cover" v-show="item.isCollect"></a>
+                        <a  href="javascript:;" class="item_bg cover" v-if="item.isCollect"></a>
                         <div class="item_img">
                           <a href="" target="_blank"><img :src="item.img"/></a>
                         </div>
@@ -38,11 +39,11 @@
                   </swiper-slide>
               </swiper>
 
-              <swiper :options="swiperOption" v-show="!showRecd">
+              <swiper :options="swiperOption" v-if="showRecd && !isTrue">
                 <swiper-slide v-for="item of recList" :key="item.id">
                   <li class="item_box">
                     <a  href="javascript:;" class="item_bg" ></a>
-                    <a  href="javascript:;" class="item_bg cover" v-show="item.isCollect"></a>
+                    <a  href="javascript:;" class="item_bg cover" v-if="item.isCollect"></a>
                     <div class="item_img">
                       <a href="" target="_blank"><img :src="item.img"/></a>
                     </div>
@@ -85,20 +86,21 @@ export default {
   data () {
     return {
       swiperOption: {
-        autoplay: 1000,
+        autoplay: 3000,
+        autoplayDisableOnInteraction: false,
+        mousewheelControl: true,
         speed: 1000,
         loop: true,
-        mousewheelControl: true,
-        // width: 240,
         slidesPerView: 3,
         prevButton: '.swiper-button-prev',
         nextButton: '.swiper-button-next'
-        // centerdSlides: true
-        // offsetSlidesAfter: 2
       },
       spc_title: '',
       rec_title: '',
-      recList: []
+      recList: [],
+      changeShow: true,
+      times: 0,
+      isTrue: true
     }
   },
   methods: {
@@ -114,10 +116,26 @@ export default {
         this.recList = data.recommend['products']
         this.rec_title = data.recommend['name']
       }
+    },
+    changeList () {
+      this.times++
+      if (this.times === 30) {
+        this.isTrue = false
+      } else if (this.times === 60) {
+        this.isTrue = true
+        this.times = 0
+      }
+    },
+    btnSpeClick () {
+      this.isTrue = true
+    },
+    btnRecClick () {
+      this.isTrue = false
     }
   },
   mounted () {
     this.getHomeInfo()
+    setInterval(this.changeList, 500)
   },
   computed: {
     showSpecial () {
@@ -232,7 +250,6 @@ export default {
     width: 100%;
     border-bottom: 2px solid rgba(230,45,45,1);
     margin:10px 0;
-
   }
   .focus_within button {
     width: 100px;
@@ -248,7 +265,7 @@ export default {
     border-bottom: none;
     float: left;
   }
-  .focus-within {
+  .selected {
     background-color: rgba(230,45,45,1) !important;
     color: rgba(255,255,255,1) !important;
   }
