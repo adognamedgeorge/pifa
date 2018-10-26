@@ -57,10 +57,9 @@
         <li v-if="cur>1"><a @click="cur--, pageClick()">上一页</a></li>
         <li v-if="cur === 1"><a class="ban_click">上一页</a></li>
         <li v-for="index in list" :key="index.id" :class="{'active': cur === index}"><a @click="btnClick(index)">{{index}}</a></li>
-        <!--<li><a href="">1</a></li>-->
         <li class="pages_dots">…</li>
-        <li><a >{{all-1}}</a></li>
-        <li><a >{{all}}</a></li>
+        <li><a >{{all+1}}</a></li>
+        <li><a >{{all+2}}</a></li>
         <li v-if="cur !== all"><a @click="cur++, pageClick()">下一页</a></li>
         <li v-if="cur === all"><a class="ban_click">下一页</a></li>
       </ul>
@@ -95,9 +94,9 @@ export default {
   },
   computed: {
     list: function () {
-      var left = 1
-      var right = this.all
-      var ar = []
+      let left = 1
+      let right = this.all
+      let ar = []
       if (this.all >= 5) {
         if (this.cur > 3 && this.cur < this.all - 2) {
           left = this.cur - 2

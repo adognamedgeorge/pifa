@@ -1,15 +1,20 @@
 <template>
-  <div>
-    系统公告
+  <div class="notice">
+    {{url}}
   </div>
 </template>
 
 <script>
 export default {
-  name: 'AnnounceNotice'
+  name: 'AnnounceNotice',
+  props: {
+    url: String
+  }
 }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+  .notice {
+    flex: 1;
+  }
 </style>

@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "",
-"sources": [],
+"mappings": "AAyKA,iCAAiC;EAC/B,OAAO,EAAE,EAAE;EACX,OAAO,EAAE,KAAK;EACd,KAAK,EAAE,IAAI;;AAEb,SAAU;EACR,IAAI,EAAE,CAAC",
+"sources": ["varible.scss"],
 "names": [],
 "file": "varible.css"
 }

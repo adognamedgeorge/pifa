@@ -2,6 +2,7 @@
   <div>
     <Header></Header>
     <Searcher></Searcher>
+    <Fixed></Fixed>
     <search-sorts></search-sorts>
     <search-category></search-category>
     <Ads></Ads>
@@ -25,8 +26,8 @@ export default {
 <style lang="scss" scoped>
   @import '../../assets/styles/varible';
   .wrapper {
-    width:$width;
-    margin:0 auto;
-    background-color:inherit;
+    width: $width;
+    margin: 0 auto;
+    background-color: inherit;
   }
 </style>
