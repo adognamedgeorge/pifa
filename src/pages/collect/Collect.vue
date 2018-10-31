@@ -2,17 +2,20 @@
   <div>
     <Header></Header>
     <Searcher></Searcher>
-    <collect-category :list="list"></collect-category>
+    <collect-collected :list="list" v-if="cledShow"></collect-collected>
+    <collect-empty v-if="!cledShow"></collect-empty>
   </div>
 </template>
 
 <script>
-import CollectCategory from './components/Category'
+import CollectCollected from './components/Collected'
+import CollectEmpty from './components/Empty'
 import axios from 'axios'
 export default {
   name: 'Collect',
   components: {
-    CollectCategory
+    CollectCollected,
+    CollectEmpty
   },
   data () {
     return {
@@ -34,6 +37,11 @@ export default {
   },
   mounted () {
     this.getColtInfo()
+  },
+  computed: {
+    cledShow () {
+      return this.list.length
+    }
   }
 }
 </script>

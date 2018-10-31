@@ -1,6 +1,16 @@
 {
   "ret": true,
   "data": {
-    "url": " http://pifa.yunmayi.com/notice?new=1387！"
+    "webAddress": [
+      {
+        "link": "http://pifa.yunmayi.com//notice/detail?id=1390",
+        "id": 1001,
+        "name": "通知1"
+      },{
+        "link": "http://pifa.yunmayi.com//notice/detail?id=1380",
+        "id": 1002,
+        "name": "通知2"
+      }
+    ]
   }
 }

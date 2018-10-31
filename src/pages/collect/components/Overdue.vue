@@ -2,22 +2,27 @@
   <div>
     <section class="section2">
       <ul>
-        <li class="item_box">
+        <li class="item_box" v-for="item of list" :key="item.id" v-if="!item.isCollect">
           <div class="item_img">
-            <a href="" target="_blank"><img src="http://i8.yunmayi.com/upload/2015/04/30/7b948795d28a540658f4fc6f6da26950.jpgXXXXX!!!!!_300x300.jpg"/></a>
+            <a href="" target="_blank"><img :src="item.img"/></a>
           </div>
           <div class="item_title">
-            <a href="" target="_blank">百事可乐碳酸饮料汽水，夏天必备夏</a>
+            <a href="" target="_blank">{{item.title}}</a>
           </div>
           <div class="item_price">
-            <i>￥</i><strong>47.9</strong>/箱
-            <span>规格:330ml*24瓶</span>
+            <i>￥</i><strong>{{item.price}}</strong>/{{item.unit}}
+            <span>规格:{{item.spec}}</span>
           </div>
-          <div class="item_action">
+          <div class="item_action" v-if="item.isCollect">
             <a href="javascript:;">-</a>
-            <input type="text" value="1" data-min="1"/>
+            <input type="text" :value="item.minSoldNum" data-min="1"/>
             <a href="javascript:;">+</a>
             <a href="javascript:;">进货</a>
+          </div>
+          <!--失效商品-->
+          <div class="item_overdue iconfont clearfix" v-if="!item.isCollect">
+            <i>&#xe602;</i>
+            <span>此宝贝已失效</span>
           </div>
         </li>
       </ul>
@@ -27,7 +32,10 @@
 
 <script>
 export default {
-  name: 'CollectOverdue'
+  name: 'CollectOverdue',
+  props: {
+    list: Array
+  }
 }
 </script>
 
@@ -45,6 +53,20 @@ export default {
         margin-left: 10px;
         border: 1px solid rgba(242, 242, 242, 1);
         width: 228px;
+        .item_overdue {
+          text-align: center;
+          color: rgba(51, 51, 51, 1);
+          font-size: 16px;
+          height: 26px;
+          line-height: 26px;
+          i {
+            font-size: 24px;
+            color: rgba(216, 216, 216, 1);
+            display: inline-block;
+            vertical-align: middle;
+            margin-top: -2px;
+          }
+        }
       }
       .item_box:nth-child(5n+1) {
         margin-left: 0;

@@ -1,13 +1,16 @@
 <template>
     <div class="footer">
-        <span>共选择6件</span>
+        <span>共选择{{len}}件</span>
         <label>批量进货</label>
     </div>
 </template>
 
 <script>
 export default {
-  name: 'CollectFooter'
+  name: 'CollectFooter',
+  props: {
+    len: Number
+  }
 }
 </script>
 

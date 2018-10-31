@@ -3,7 +3,7 @@
     <Header></Header>
     <Searcher></Searcher>
     <Fixed></Fixed>
-    <announce-notice :url.sync="url"></announce-notice>
+    <announce-notice :web="web"></announce-notice>
     <Footer></Footer>
   </div>
 </template>
@@ -15,7 +15,7 @@ export default {
   name: 'Announce',
   data () {
     return {
-      url: ''
+      web: []
     }
   },
   components: {
@@ -30,7 +30,7 @@ export default {
       res = res.data
       if (res.ret && res.data) {
         const data = res.data
-        this.url = data.url
+        this.web = data.webAddress
       }
     }
   },

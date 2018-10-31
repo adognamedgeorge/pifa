@@ -2,16 +2,38 @@
   <div>
     <Header></Header>
     <Searcher></Searcher>
-    <coupon-use></coupon-use>
+    <coupon-receive :list="list"></coupon-receive>
   </div>
 </template>
 
 <script>
-import CouponUse from './components/Use'
+import axios from 'axios'
+import CouponReceive from './components/Receive'
 export default {
   name: 'Coupon',
+  data () {
+    return {
+      list: []
+    }
+  },
   components: {
-    CouponUse
+    CouponReceive
+  },
+  methods: {
+    getCouInfo () {
+      axios.get('/api/coupon.json')
+        .then(this.getCouInfoSucc)
+    },
+    getCouInfoSucc (res) {
+      res = res.data
+      if (res.ret && res.data) {
+        const data = res.data
+        this.list = data.couponList
+      }
+    }
+  },
+  mounted () {
+    this.getCouInfo()
   }
 }
 </script>

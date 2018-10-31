@@ -6,4 +6,98 @@
 .clearfix {
   zoom: 1; }
 
+.content1, .content2, .content3 {
+  display: none;
+  padding-top: 30px;
+  box-shadow: 0 -1px 0 0 #f2f2f2; }
+  .content1 ul li, .content2 ul li, .content3 ul li {
+    width: 378px;
+    height: 158px;
+    border: 1px solid #f2f2f2;
+    float: left;
+    margin-left: 25px;
+    margin-bottom: 20px; }
+    .content1 ul li section, .content2 ul li section, .content3 ul li section {
+      float: left;
+      padding: 24px 0 24px 16px; }
+      .content1 ul li section .section_img, .content2 ul li section .section_img, .content3 ul li section .section_img {
+        width: 100px;
+        height: 100px;
+        margin-top: 6px;
+        float: left; }
+        .content1 ul li section .section_img img, .content2 ul li section .section_img img, .content3 ul li section .section_img img {
+          width: 100%; }
+      .content1 ul li section .section_content, .content2 ul li section .section_content, .content3 ul li section .section_content {
+        width: 140px;
+        min-height: 112px;
+        float: left;
+        font-size: 12px;
+        padding-left: 14px; }
+        .content1 ul li section .section_content header, .content2 ul li section .section_content header, .content3 ul li section .section_content header {
+          height: 44px;
+          line-height: 44px;
+          color: #E62D2D;
+          font-size: 16px;
+          margin-bottom: 10px; }
+          .content1 ul li section .section_content header b, .content2 ul li section .section_content header b, .content3 ul li section .section_content header b {
+            font-size: 30px;
+            font-weight: normal; }
+          .content1 ul li section .section_content header span, .content2 ul li section .section_content header span, .content3 ul li section .section_content header span {
+            font-size: 12px;
+            color: #fb7d7d;
+            background: #ffeded;
+            padding: 0 6px; }
+        .content1 ul li section .section_content p, .content2 ul li section .section_content p, .content3 ul li section .section_content p {
+          color: #333333;
+          font-size: 14px;
+          margin-bottom: 6px;
+          min-height: 38px; }
+        .content1 ul li section .section_content h3, .content2 ul li section .section_content h3, .content3 ul li section .section_content h3 {
+          color: #999999;
+          font-weight: normal;
+          font-size: 12px; }
+    .content1 ul li aside, .content2 ul li aside, .content3 ul li aside {
+      width: 81px;
+      background-color: #FB7D7D;
+      height: 100%;
+      float: right;
+      overflow: hidden;
+      position: relative;
+      text-align: center; }
+      .content1 ul li aside a, .content2 ul li aside a, .content3 ul li aside a {
+        display: inline-block;
+        height: 50%;
+        line-height: 20px;
+        width: 16px;
+        padding: 40px 0;
+        font-size: 16px;
+        color: white; }
+    .content1 ul li aside::before, .content2 ul li aside::before, .content3 ul li aside::before {
+      content: '';
+      position: absolute;
+      height: 10px;
+      width: 10px;
+      background-color: white;
+      left: -5px;
+      top: -5px;
+      border-radius: 100%; }
+    .content1 ul li aside::after, .content2 ul li aside::after, .content3 ul li aside::after {
+      content: '';
+      position: absolute;
+      height: 10px;
+      width: 10px;
+      background-color: white;
+      left: -5px;
+      bottom: -5px;
+      border-radius: 100%; }
+    .content1 ul li .wavy_line, .content2 ul li .wavy_line, .content3 ul li .wavy_line {
+      position: absolute;
+      top: 5%;
+      width: 4px;
+      height: 90%;
+      background-image: radial-gradient(circle, transparent, transparent 4px, #fff 4px, #fff);
+      background-size: 8px 8px; }
+  .content1 ul li:nth-child(3n+1), .content2 ul li:nth-child(3n+1), .content3 ul li:nth-child(3n+1) {
+    margin-left: 0; }
+
 /*# sourceMappingURL=varible.css.map */
