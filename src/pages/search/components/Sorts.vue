@@ -9,22 +9,14 @@
       <div class="sm_leimu">
         <h3>类目</h3>
         <div>
-          <a href="">食品零食</a><a href="">酒水饮料</a><a href="">冰淇淋</a><a href="">日用洗护</a><a href="">家用百货</a><a href="">九五折专区</a>
-          <a href="">速冻食品</a><a href="">母婴用品</a><a href="">粮油调味</a><a href="">尾品汇</a>
+          <a href="" v-for="(item, index) of sortList" :key="index">{{item}}</a>
         </div>
       </div>
 
       <div class="sm_brand" :class="{show: showHeight, hide: hideHeight}">
         <h3>品牌</h3>
         <div>
-          <a href="">维他奶</a><a href="">酒水饮</a><a href="">冰淇</a><a href="">日用洗</a><a href="">家用百</a><a href="">九五折</a>
-          <a href="">速冻食品</a><a href="">母婴用品</a><a href="">粮油味</a>
-          <a href="">食品零食</a><a href="">酒水饮料</a><a href="">冰淇淋</a><a href="">日洗护</a><a href="">家用货</a><a href="">九专区</a>
-          <a href="">速冻食品</a><a href="">母用品</a><a href="">粮油调味</a>
-          <a href="">食零食</a><a href="">酒水饮料</a><a href="">冰淇淋</a><a href="">日用洗护</a><a href="">家用百货</a><a href="">九五折专区</a>
-          <a href="">速冻食品</a><a href="">母婴用品</a><a href="">粮油调味</a>
-          <a href="">食零食</a><a href="">酒水料</a><a href="">冰淇淋</a><a href="">日用护</a><a href="">家百货</a><a href="">九五折专区</a>
-          <a href="">速冻品</a><a href="">母婴品</a><a href="">粮油味</a>
+          <a href="" v-for="(item, index) of brandList" :key="index">{{item}}</a>
         </div>
         <a class="sm_more" @click="overShow" >{{text}}<span class="sm_more_bg" :class="{hover: iconTurn}"> </span></a>
       </div>
@@ -41,6 +33,10 @@ export default {
       text: '更多',
       iconTurn: false
     }
+  },
+  props: {
+    sortList: Array,
+    brandList: Array
   },
   methods: {
     overShow () {
@@ -81,22 +77,21 @@ export default {
         margin-top: 1px;
       }
     }
-
+    .sm_leimu, .sm_brand {
+      border: 1px solid rgba(230,230,230,1);
+      @extend %h3a;
+      font-size: 14px;
+      overflow: hidden;
+    }
     .sm_leimu {
       height: 40px;
-      border: 1px solid rgba(230,230,230,1);
       line-height: 40px;
       font-size: 14px;
-      @extend %h3a;
     }
 
     .sm_brand {
-      border: 1px solid rgba(230,230,230,1);
       border-top: none;
-      font-size: 14px;
-      overflow: hidden;
       position: relative;
-      @extend %h3a;
       h3 {
         line-height: 40px;
         height: inherit;
@@ -131,7 +126,6 @@ export default {
         -webkit-transform: rotate(180deg);
       }
     }
-
     .show {
       height: 100%;
     }

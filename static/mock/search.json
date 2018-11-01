@@ -1,0 +1,58 @@
+{
+  "ret": true,
+  "data": {
+    "sortList": [
+      "食品零食","酒水饮料","冰淇淋","日用洗护","家用百货","九五折专区","食品零食","酒水饮料","冰淇淋","日用洗护","家用百货","九五折专区"
+    ],
+    "brandList": [
+      "维他奶","伊利","康师傅","李子园","旺仔","蒙牛","光明",
+      "维他奶","伊利","康师傅","李子园","旺仔","蒙牛","光明",
+      "维他奶","伊利","康师傅","李子园","旺仔","蒙牛","光明",
+      "维他奶","伊利","康师傅","李子园","旺仔","蒙牛","光明",
+      "维他奶","伊利","康师傅","李子园","旺仔","蒙牛","光明"
+    ],
+    "searchList": [
+        {
+          "id": "110974",
+          "stock": "100",
+          "img": "http://pifa.yunmayi.com/upload/2015/10/21/165dfcb4125eec29a429f10ce8e45e5c.jpg",
+          "title": "1111111111111",
+          "spec": "10kg/袋",
+          "unit": "袋",
+          "price": "105.50",
+          "minSoldNum": "3",
+          "isCollect": 0
+        },{
+        "id": "110975",
+        "stock": "900",
+        "img": "http://pifa.yunmayi.com/upload/2015/10/21/165dfcb4125eec29a429f10ce8e45e5c.jpg",
+        "title": "2222222222222222222",
+        "spec": "310kg/袋",
+        "unit": "箱",
+        "price": "15.50",
+        "minSoldNum": "4",
+        "isCollect": 1
+      },{
+        "id": "110976",
+        "stock": "110",
+        "img": "/upload/eba1c2ef98775bf4431d2ebd472eab51.jpg",
+        "title": "333333333333333",
+        "spec": "90kg/袋",
+        "unit": "袋",
+        "price": "905.50",
+        "minSoldNum": "5",
+        "isCollect": 0
+      },{
+        "id": "110977",
+        "stock": "110",
+        "img": "http://pifa.yunmayi.com/upload/2015/10/21/165dfcb4125eec29a429f10ce8e45e5c.jpg",
+        "title": "44444444444444444444",
+        "spec": "90kg/袋",
+        "unit": "袋",
+        "price": "905.50",
+        "minSoldNum": "6",
+        "isCollect": 1
+      }
+    ]
+  }
+}

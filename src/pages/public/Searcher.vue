@@ -21,13 +21,25 @@
       </div>
 
       <div class="search_bar">
-        <section>
+        <section class="bar_section">
           <h2>全部商品分类</h2>
+          <ul>
+            <li v-for="item of goodsList" :key="item.id">
+              <div class="li_box">
+                <h3>
+                  <a href="">{{item.name}}</a>
+                </h3>
+                <div class="li_content">
+                  <a href="" v-for="item2 of item.items" :key="item2.id">{{item2.secName}}</a>
+                </div>
+              </div>
+            </li>
+          </ul>
         </section>
 
         <ul class="search_bar_ul">
           <li><a href="">首页</a></li>
-          <li v-for="item of sortsList" :key="item.id"><a href="">{{item.name}}</a></li>
+          <li v-for="item of goodsList" :key="item.id"><a href="">{{item.name}}</a></li>
         </ul>
 
       </div>
@@ -43,9 +55,9 @@ export default {
   data () {
     return {
       cartNum: 0,
-      sortsList: [],
       cartList: [],
-      newArr: []
+      newArr: [],
+      goodsList: []
     }
   },
   methods: {
@@ -59,7 +71,7 @@ export default {
         const data = res.data
         this.cartNum = data.cartNum
         this.cartList = data.cartList
-        this.sortsList = data.sortsList
+        this.goodsList = data.goodsList
       }
     }
   },
@@ -151,17 +163,58 @@ export default {
       line-height: 30px;
       width: 100%;
       float: left;
-      overflow: hidden;
-      section {
+      .bar_section {
         background-color: rgba(230, 45, 45, 1);
         color: $color;
-        text-align: center;
         display: inline-block;
         width: 230px;
         float: left;
+        cursor: pointer;
         h2 {
           font-size: 16px;
+          text-align: center;
         }
+        ul {
+          display: none;
+          width: 228px;
+          border: 1px solid #f2f2f2;
+          box-shadow: 0 0 10px rgba(0,0,0,.2);
+          overflow: hidden;
+          padding-bottom: 20px;
+          background-color: #ffffff;
+          z-index: 999;
+          position: absolute;
+          .li_box {
+            padding: 6px 0 4px 0;
+            margin: 0 12px 0 15px;
+            border-bottom: 1px dotted #979797;
+            h3 {
+              font-size: 14px;
+              line-height: 24px;
+              a {
+                font-weight: bold;
+                color: #333333;
+              }
+            }
+            .li_content {
+              height: 24px;
+              line-height: 24px;
+              overflow: hidden;
+              a {
+                display: inline-block;
+                font-size: 12px;
+                color: #727272;
+                margin-right: 8px;
+              }
+            }
+              a:hover {
+                color: red;
+              }
+          }
+        }
+      }
+      .bar_section:hover > ul {
+        display: block;
       }
 
       .search_bar_ul {

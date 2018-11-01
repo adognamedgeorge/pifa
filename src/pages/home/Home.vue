@@ -3,11 +3,7 @@
     <Header></Header>
     <Searcher></Searcher>
     <Fixed></Fixed>
-    <home-poster :list="posterList"
-                 :user="user"
-                 :acc="account"
-                 :cou="couponNum"
-                 :notice="noticeList">
+    <home-poster :user="user">
     </home-poster>
     <home-bargain :list="specialPrice"></home-bargain>
     <home-category></home-category>
@@ -32,10 +28,6 @@ export default {
   data () {
     return {
       user: {},
-      account: {},
-      couponNum: '',
-      posterList: [],
-      noticeList: [],
       specialPrice: [],
       categories: []
     }
@@ -50,10 +42,6 @@ export default {
       if (res.ret && res.data) {
         const data = res.data
         this.user = data.user
-        this.account = data.account
-        this.couponNum = data.couponNum
-        this.posterList = data.posterList
-        this.noticeList = data.noticeList
         this.specialPrice = data.specialPrice['products']
         this.categories = data.categories
       }
@@ -71,15 +59,18 @@ export default {
     background-color: rgba(245,245,245,1) !important;
   }
 
-  #search /deep/ .search_bar > section {
+  #search /deep/ .search_bar > .bar_section {
     background-color: white !important;
   }
-  #search /deep/ .search_bar > section h2 {
+  #search /deep/ .search_bar > .bar_section h2 {
     background-color: rgba(255,255,255,1) !important;
     color: rgba(51,51,51,1) !important;
     text-align: unset !important;
     text-indent: 20px;
     float: left;
+  }
+  #search /deep/ .search_bar > .bar_section:hover > ul {
+    display: none !important;
   }
   #search /deep/ .search_logo {
     background-color: rgba(255,255,255,1);
