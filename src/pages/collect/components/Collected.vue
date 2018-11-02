@@ -263,7 +263,7 @@ export default {
     }
   }
   .footer_fixed {
-    box-shadow:0px -4px 10px 0px rgba(153,153,153,0.1);
+    box-shadow: 0px -4px 10px 0px rgba(153,153,153,0.1);
   }
   .focus_within {
     color: rgba(230,45,45,1);

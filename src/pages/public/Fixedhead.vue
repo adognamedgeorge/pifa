@@ -4,6 +4,8 @@
       <div class="topfixed_title">
         <i>&#8801;</i>
         <h2>全部商品分类</h2>
+        <!--全部商品分类类目组件-->
+        <fix-catalog></fix-catalog>
       </div>
       <div class="topfixed_search">
         <form action="http://pifa.v2.com/search/index" method="GET">
@@ -18,8 +20,12 @@
 </template>
 
 <script>
+import FixCatalog from './Fixcatalog'
 export default {
   name: 'Fixed',
+  components: {
+    FixCatalog
+  },
   data () {
     return {
       scrollTop: null,
@@ -42,6 +48,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .topfixed_title /deep/ .fixcatalog { margin-left: -20px;}
+  .topfixed_title:hover {
+    /deep/ .fixcatalog {
+      display: block;
+    }
+  }
   #topfixed {
     background: #fff;
     width: 100%;
@@ -72,7 +84,6 @@ export default {
         font-size: 16px;
         letter-spacing: 1px;
         margin-left: 6px;
-        float: left;
         display: inline-block;
       }
     }

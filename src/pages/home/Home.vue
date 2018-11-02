@@ -69,7 +69,7 @@ export default {
     text-indent: 20px;
     float: left;
   }
-  #search /deep/ .search_bar > .bar_section:hover > ul {
+  #search /deep/ .search_bar > .bar_section:hover > .fixcatalog {
     display: none !important;
   }
   #search /deep/ .search_logo {

@@ -181,6 +181,10 @@ $Sprite:url("~@/assets/imgs/sprite.png") no-repeat;
               position: absolute;
             }
           }
+          a:hover {
+            opacity: .7;
+            fliter: Alpha(opacity=70);
+          }
 
         }
         .ca_list {
@@ -206,6 +210,11 @@ $Sprite:url("~@/assets/imgs/sprite.png") no-repeat;
               display: table-cell;
               padding-left: 7px;
               padding-right: 7px;
+            }
+            a:hover {
+              color: red;
+              opacity: .8;
+              fliter: Alpha(opacity=80);
             }
           }
         }

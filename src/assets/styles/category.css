@@ -150,6 +150,9 @@
               right: 25px;
               top: 7px;
               position: absolute; }
+          .categories .category .c_left .left_t .ca_title a:hover {
+            opacity: .7;
+            fliter: Alpha(opacity=70); }
         .categories .category .c_left .left_t .ca_list {
           overflow: hidden;
           height: 204px;
@@ -173,6 +176,10 @@
               display: table-cell;
               padding-left: 7px;
               padding-right: 7px; }
+            .categories .category .c_left .left_t .ca_list li a:hover {
+              color: red;
+              opacity: .8;
+              fliter: Alpha(opacity=80); }
       .categories .category .c_left .left_b {
         width: 230px;
         height: 310px; }
