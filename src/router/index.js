@@ -6,6 +6,7 @@ import Detail from '@/pages/detail/Detail'
 import Collect from '@/pages/collect/Collect'
 import Coupon from '@/pages/coupon/Coupon'
 import Announce from '@/pages/announce/Announce'
+import Cart from '@/pages/cart/Cart'
 
 Vue.use(Router)
 
@@ -40,6 +41,11 @@ export default new Router({
       path: '/announce',
       name: 'Announce',
       component: Announce
+    },
+    {
+      path: '/cart',
+      name: 'Cart',
+      component: Cart
     }
   ]
 })

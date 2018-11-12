@@ -5,8 +5,11 @@
 
         <div class="search_logo">
           <main>
-            <a class="logo_img" href=""><img src="http://pifa.yunmayi.com/statics/images/new_log.png" title="云蚂蚁www.yunmayi.com"/></a>
-            <a class="logo_font" href=""><img src="http://pifa.yunmayi.com/statics/images/index/04171124.png" title="云蚂蚁批发平台"/></a>
+            <a class="logo_img"><img src="http://pifa.yunmayi.com/statics/images/new_log.png" title="云蚂蚁www.yunmayi.com"/></a>
+            <a class="logo_font">
+              <img src="http://pifa.yunmayi.com/statics/images/index/04171124.png" title="云蚂蚁批发平台"/>
+              <i class="logo_text">{{logoFont}}</i>
+            </a>
           </main>
         </div>
 
@@ -14,7 +17,9 @@
             <input type="text" placeholder="搜索商品关键字，品牌"/>
             <button type="submit">搜索</button>
         </div>
-      <Cart></Cart>
+        <!--购物车组件start-->
+        <Cart class="search_cart"></Cart>
+        <!--购物车组件end-->
         <div class="search_img">
           <img src="../../assets/imgs/2.png" alt="云蚂蚁app二维码" title="扫码下载云蚂蚁官方APP"/>
         </div>
@@ -45,6 +50,9 @@ export default {
   name: 'HomeSearcher',
   components: {
     FixCatalog
+  },
+  props: {
+    logoFont: String
   },
   data () {
     return {
@@ -113,8 +121,23 @@ export default {
                 vertical-align: middle;
               }
             }
-            a:first-child {width: 96px;}
-            a:last-child {width: 124px; line-height: 76px; display: block;}
+            .logo_img { width: 96px; }
+            .logo_font {
+              width: 124px;
+              line-height: 76px;
+              height: 76px;
+              display: block;
+              position: relative;
+              .logo_text {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                font-size: 30px;
+                color: rgba(51,51,51,1);
+                text-indent: 13px;
+                display: none;
+              }
+            }
           }
         }
 
